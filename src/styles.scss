@@ -1,0 +1,229 @@
+/* reset بسيط */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #222222;
+  --color-muted: #555555;
+
+  --color-primary: #214b33;   /* أخضر */
+  --color-primary-dark: #123222;
+  --color-accent: #f9b234;    /* أصفر */
+
+  --radius-pill: 999px;
+  --radius-lg: 24px;
+
+  --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+/* جسم الصفحة */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* أزرار عامة */
+.btn {
+  border-radius: var(--radius-pill);
+  padding: 0.55rem 1.6rem;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* primary */
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* outline داكن */
+.btn-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+/* زرار أبيض */
+.btn-white {
+  background: #ffffff;
+  color: var(--color-primary);
+  border: 1px solid #e5e5e5;
+}
+
+/* نصوص عامة لو حبيتي */
+.text-muted {
+  color: var(--color-muted);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== Scroll Reveal Animations ===== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+}
+
+/* اتجاهات مختلفة */
+.reveal-from-bottom {
+  transform: translateY(40px);
+}
+
+.reveal-from-left {
+  transform: translateX(-40px);
+}
+
+.reveal-from-right {
+  transform: translateX(40px);
+}
+
+.reveal.fade {
+  transform: none;
+}
+
+/* أول ما يدخل في الشاشة */
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+/* شوية delays لسكاشن فيها كروت كتير */
+.features .card:nth-child(1),
+.services .srv-card:nth-child(1) {
+  transition-delay: 0.05s;
+}
+
+.features .card:nth-child(2),
+.services .srv-card:nth-child(2) {
+  transition-delay: 0.15s;
+}
+
+.features .card:nth-child(3),
+.services .srv-card:nth-child(3) {
+  transition-delay: 0.25s;
+}
+
+
+
+
+
+/* Base */
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+}
+
+/* from bottom */
+.reveal-from-bottom {
+  transform: translateY(40px);
+}
+
+/* from left */
+.reveal-from-left {
+  transform: translateX(-40px);
+}
+
+/* from right */
+.reveal-from-right {
+  transform: translateX(40px);
+}
+
+/* fade (مفيش حركة، بس شفافية) */
+.reveal-fade {
+  opacity: 0.3;
+  transform: none; 
+}
+
+/* visible */
+.reveal-visible {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+html {
+  scroll-behavior: smooth;
+}

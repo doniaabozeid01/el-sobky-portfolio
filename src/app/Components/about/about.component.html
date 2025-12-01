@@ -1,0 +1,61 @@
+<section id="about" class="about-section">
+  <div class="about-inner">
+
+    <!-- LEFT: الصورة والدويرة -->
+    <div class="about-left" appScrollReveal="from-left">
+      <div class="about-photo-wrapper">
+        <div class="about-photo-bg"></div>
+
+        <div class="about-photo-circle">
+          <img
+            src="assets/images/mahmoud.png"
+            alt="Mahmoud ElSobky"
+          />
+        </div>
+
+        <!-- التاجات حوالين الصورة -->
+        <div
+          class="about-tag"
+          *ngFor="let tag of tags; let i = index"
+          [ngClass]="'about-tag-' + i"
+        >
+          {{ tag }}
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: النصوص -->
+    <div class="about-right" appScrollReveal="from-right">
+      <span class="about-eyebrow">— About Me</span>
+
+      <h2 class="about-title">
+        Who is <span>Mahmoud ElSobky?</span>
+      </h2>
+
+      <p class="about-desc">
+        Mahmoud ElSobky is a passionate Frontend &amp; UI developer who loves
+        crafting clean interfaces and smooth user experiences using Angular and modern web
+        technologies.
+      </p>
+
+      <div class="about-stats">
+        <div class="about-stat" *ngFor="let stat of stats">
+          <div class="about-stat-value">{{ stat.value }}</div>
+          <div class="about-stat-label">{{ stat.label }}</div>
+        </div>
+      </div>
+
+      <div class="about-actions">
+        <button class="btn-about-cta">
+          <span class="btn-about-text">Download CV</span>
+          <span class="btn-about-icon">
+            <span class="btn-about-icon-inner">➜</span>
+          </span>
+        </button>
+
+        <span class="about-signature">Mahmoud ElSobky</span>
+      </div>
+    </div>
+
+  </div>
+</section>

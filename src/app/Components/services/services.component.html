@@ -1,0 +1,43 @@
+<!-- <section class="services-section"> -->
+<section id="services" class="services-section">
+
+  <div class="services-header">
+    <div class="services-title">
+      <span class="section-eyebrow">— Services</span>
+      <h2>
+        <span class="highlight">Services</span>
+        <span> I Provide</span>
+      </h2>
+    </div>
+
+    <button class="btn-services-cta">
+      <span class="btn-services-text">View All Services</span>
+      <span class="btn-services-icon">
+        <span class="btn-services-icon-inner">➜</span>
+      </span>
+    </button>
+  </div>
+
+  <div class="services-grid">
+    <article
+      class="service-card"
+      *ngFor="let service of services"
+      appScrollReveal="from-bottom"
+    >
+      <div class="service-icon">
+        <span>{{ service.icon }}</span>
+      </div>
+
+      <h3 class="service-title">{{ service.title }}</h3>
+
+      <p class="service-desc">
+        {{ service.description }}
+      </p>
+
+      <button class="service-more">
+        Learn more <span>➜</span>
+      </button>
+    </article>
+  </div>
+
+</section>

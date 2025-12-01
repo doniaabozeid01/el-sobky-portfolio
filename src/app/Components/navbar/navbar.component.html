@@ -1,0 +1,71 @@
+<nav class="navbar-wrapper" >
+  <div class="navbar-pill">
+    <!-- Logo -->
+    <div class="navbar-left">
+      <div class="navbar-logo-circle">
+        <span>M</span>
+      </div>
+      <span class="navbar-logo-text">
+        Mahmoud ElSobky<span class="dot">.</span>
+      </span>
+    </div>
+
+    <!-- Links -->
+    <ul class="navbar-links">
+  <li [class.active]="activeSection === 'hero'">
+    <a href="#" (click)="scrollToSection('hero', $event)">Home</a>
+  </li>
+
+  <li [class.active]="activeSection === 'services'">
+    <a href="#" (click)="scrollToSection('services', $event)">Services</a>
+  </li>
+
+  <li [class.active]="activeSection === 'about'">
+    <a href="#" (click)="scrollToSection('about', $event)">About</a>
+  </li>
+
+  <li [class.active]="activeSection === 'tools'">
+    <a href="#" (click)="scrollToSection('tools', $event)">Tools</a>
+  </li>
+
+  <li [class.active]="activeSection === 'projects'">
+    <a href="#" (click)="scrollToSection('projects', $event)">Projects</a>
+  </li>
+
+  <li [class.active]="activeSection === 'journey'">
+    <a href="#" (click)="scrollToSection('journey', $event)">Professional journey</a>
+  </li>
+
+  <li [class.active]="activeSection === 'contact'">
+    <a href="#" (click)="scrollToSection('contact', $event)">Contact</a>
+  </li>
+</ul>
+
+
+    <!-- Contact button -->
+    <button
+      class="navbar-contact-btn"
+      (click)="scrollToSection('contact')"
+      [class.active-contact]="activeSection === 'contact'"
+    >
+      Contact Me
+    </button>
+
+    <!-- زر مينو للموبايل -->
+    <button class="navbar-menu-btn" (click)="toggleMenu()">
+      ☰
+    </button>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" *ngIf="isMenuOpen">
+      <a (click)="scrollToSection('hero')">Home</a>
+      <a (click)="scrollToSection('services')">Services</a>
+      <a (click)="scrollToSection('about')">About</a>
+      <a (click)="scrollToSection('tools')">Tools</a>
+      <a (click)="scrollToSection('projects')">Projects</a>
+      <a (click)="scrollToSection('journey')">Professional journey</a>
+      <a (click)="scrollToSection('contact')">Contact</a>
+    </div>
+
+  </div>
+</nav>

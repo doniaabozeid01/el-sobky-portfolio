@@ -1,0 +1,51 @@
+<!-- <section class="projects-section"> -->
+  <section id="projects" class="projects-section">
+
+  <div class="projects-inner">
+
+    <!-- Header -->
+    <div class="projects-header">
+      <div>
+        <span class="section-eyebrow">— My Portfolio</span>
+        <h2 class="projects-title">
+          My Latest <span>Projects</span>
+        </h2>
+      </div>
+
+      <button class="btn-projects-cta">
+        <span class="btn-projects-text">View All Projects</span>
+        <span class="btn-projects-icon">
+          <span class="btn-projects-icon-inner">➜</span>
+        </span>
+      </button>
+    </div>
+
+    <!-- Grid -->
+    <div class="projects-grid">
+      <article
+        class="project-card"
+        *ngFor="let project of projects"
+        appScrollReveal="from-bottom"
+      >
+        <div class="project-image">
+          <img [src]="project.image" [alt]="project.title" />
+        </div>
+
+        <div class="project-tags">
+          <span class="project-tag" *ngFor="let tag of project.tags">
+            {{ tag }}
+          </span>
+        </div>
+
+        <div class="project-footer">
+          <h3 class="project-title">{{ project.title }}</h3>
+
+          <button class="project-plus-btn">
+            +
+          </button>
+        </div>
+      </article>
+    </div>
+
+  </div>
+</section>

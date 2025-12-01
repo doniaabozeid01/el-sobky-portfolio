@@ -1,0 +1,293 @@
+/* نفترض إن الألوان دي موجودة في :root 
+   --color-primary: الأخضر  /  --color-accent: الأصفر
+*/
+
+/* الخلفية الرمادي الفاتح اللي برا */
+.navbar-wrapper {
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: center;
+  background: #ffffff; // زي اللي في التصميم، غيريها لو عايزة
+}
+
+/* الشريط الأخضر الـ pill */
+.navbar-pill {
+  width: min(1120px, 100% - 40px);
+  background: var(--color-primary);
+  border-radius: 999px;
+  padding: 0.7rem 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  color: #ffffff;
+}
+
+/* ===== Logo ===== */
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.navbar-logo-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.navbar-logo-text {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.navbar-logo-text .dot {
+  color: var(--color-accent);
+}
+
+/* ===== Links ===== */
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.navbar-links .active a {
+  color: var(--color-accent);
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: 2px;
+}
+
+/* ===== Contact button ===== */
+
+.navbar-contact-btn {
+  padding: 0.45rem 1.6rem;
+  border-radius: 999px;
+  border: 2px solid #ffffff;
+  background: #ffffff;
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.navbar-contact-btn:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* زر المينو للموبايل */
+.navbar-menu-btn {
+  display: none;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+/* MOBILE MENU */
+
+.mobile-menu {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  background: var(--color-primary);
+  padding: 1.2rem;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 1000;
+}
+
+.mobile-menu a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mobile-menu a:last-child {
+  border-bottom: none;
+}
+
+.mobile-contact-btn {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--color-primary);
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+
+
+
+/* ===== Responsive ===== */
+
+@media (max-width: 768px) {
+  .navbar-pill {
+    padding-inline: 1.2rem;
+  }
+
+  .navbar-links {
+    display: none; // نخبي اللينكات على الموبايل
+  }
+
+  .navbar-contact-btn {
+    display: none; // لو عايزة تخليه يظهر برضه سيبي السطر ده
+  }
+
+  .navbar-menu-btn {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-contact-btn {
+    display: none;
+  }
+
+  .navbar-menu-btn {
+    display: block;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* الناف بار نفسه */
+// .navbar-wrapper {
+//   position: fixed;
+//   top: 24px;              /* المكان وهو فوق الـ hero */
+//   left: 0;
+//   right: 0;
+//   z-index: 100;
+//   display: flex;
+//   justify-content: center;
+//   // transition: top 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+//   background: transparent;
+// }
+
+/* لما ننزل شوية بالـ scroll يطلع لفوق ويلزق في الأعلى */
+
+
+/* الشريط الأخضر زي ما كان */
+.navbar-pill {
+  width: min(1120px, 100% - 40px);
+  background: var(--color-primary);
+  border-radius: 999px;
+  padding: 0.7rem 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  color: #ffffff;
+}
+
+/* ACTIVE STATE لللينكات */
+.navbar-links li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.navbar-links li.active a {
+  color: var(--color-accent);
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: 2px;
+}
+
+/* Contact active (اختياري تديها ستايل مختلف) */
+.navbar-contact-btn.active-contact {
+  background: #ffffff;
+  color: var(--color-primary);
+}
+
+/* media query السابق يفضل زي ما هو للموبايل */
+@media (max-width: 768px) {
+  .navbar-pill {
+    padding-inline: 1.2rem;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-contact-btn {
+    display: none;
+  }
+
+  .navbar-menu-btn {
+    display: block;
+  }
+
+  .mobile-menu {
+    position: absolute;
+    top: 62px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    background: var(--color-primary);
+    padding: 1.2rem;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 200;
+  }
+
+  .mobile-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}

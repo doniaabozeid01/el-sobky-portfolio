@@ -1,0 +1,194 @@
+// /* ============ STEPS + PHONE OVAL SECTION ============ */
+// .steps-section {
+//   background: #ffffff;
+// }
+
+// .steps-layout {
+//   display: grid;
+//   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) minmax(0, 1fr);
+//   gap: 32px;
+//   align-items: center;
+// }
+
+// /* LEFT – steps list */
+// .steps-list {
+//   display: grid;
+//   gap: 18px;
+//   font-size: 14px;
+// }
+
+// .step-item-title {
+//   font-weight: 600;
+//   margin-bottom: 2px;
+// }
+
+// .step-number {
+//   width: 28px;
+//   height: 28px;
+//   border-radius: 999px;
+//   background: #f2f4f3;
+//   color: var(--olive-dark);
+//   display: inline-flex;
+//   align-items: center;
+//   justify-content: center;
+//   font-weight: 600;
+//   font-size: 13px;
+//   margin-right: 8px;
+// }
+
+// .steps-note {
+//   font-size: 13px;
+//   color: var(--text-muted);
+//   margin-top: 4px;
+// }
+
+// /* CENTER – oval with phone */
+// .steps-visual {
+//   display: flex;
+//   justify-content: center;
+// }
+
+// .steps-oval {
+//   width: 260px;
+//   height: 340px;
+//   border-radius: 999px;
+//   background: #ffffff;
+//   border: 2px solid rgba(33, 68, 59, 0.12);
+//   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   padding: 18px;
+// }
+
+// .phone-mock {
+//   width: 170px;
+//   height: 300px;
+//   border-radius: 32px;
+//   background: linear-gradient(145deg, #152924, #21443b);
+//   border: 8px solid #111a18;
+//   position: relative;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// .phone-mock::before {
+//   content: "";
+//   position: absolute;
+//   top: 8px;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   width: 64px;
+//   height: 5px;
+//   border-radius: 999px;
+//   background: rgba(0, 0, 0, 0.6);
+// }
+
+// .phone-screen {
+//   width: 84%;
+//   height: 84%;
+//   border-radius: 24px;
+//   background: radial-gradient(circle at top, #3fd1ab, #18332c);
+//   padding: 14px 12px;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   color: #f4f1ea;
+//   font-size: 11px;
+// }
+
+// .phone-badge {
+//   align-self: flex-start;
+//   padding: 4px 10px;
+//   border-radius: 999px;
+//   background: rgba(0, 0, 0, 0.35);
+//   font-size: 10px;
+// }
+
+// .phone-title {
+//   font-size: 14px;
+//   font-weight: 600;
+//   margin-top: 6px;
+//   margin-bottom: 4px;
+// }
+
+// .phone-pill-row {
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: 6px;
+//   margin-top: 6px;
+// }
+
+// .phone-pill {
+//   padding: 3px 8px;
+//   border-radius: 999px;
+//   background: rgba(0, 0, 0, 0.3);
+//   font-size: 10px;
+// }
+
+// .phone-bottom-card {
+//   background: rgba(0, 0, 0, 0.3);
+//   border-radius: 14px;
+//   padding: 8px;
+//   font-size: 10px;
+// }
+
+// /* RIGHT – stats + technical skills chips */
+// .steps-side {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 16px;
+//   align-items: flex-start;
+// }
+
+// .steps-metrics {
+//   display: grid;
+//   gap: 8px;
+//   font-size: 13px;
+// }
+
+// .steps-metrics strong {
+//   font-size: 18px;
+//   color: var(--olive-dark);
+// }
+
+// .tech-chips-title {
+//   font-size: 13px;
+//   font-weight: 600;
+// }
+
+// .tech-chips {
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: 8px;
+//   font-size: 11px;
+// }
+
+// .tech-chip {
+//   padding: 5px 10px;
+//   border-radius: 999px;
+//   background: #f2f4f3;
+//   border: 1px solid rgba(33, 68, 59, 0.12);
+//   color: var(--olive-dark);
+// }
+
+// /* RESPONSIVE */
+// @media (max-width: 992px) {
+//   .steps-layout {
+//     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+//   }
+//   .steps-side {
+//     margin-top: 20px;
+//   }
+// }
+
+// @media (max-width: 768px) {
+//   .steps-layout {
+//     grid-template-columns: minmax(0, 1fr);
+//   }
+//   .steps-visual {
+//     order: -1;
+//     margin-bottom: 20px;
+//   }
+// }

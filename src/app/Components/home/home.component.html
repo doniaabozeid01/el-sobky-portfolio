@@ -1,0 +1,770 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mahmoud ElSobky | Flutter Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --olive-dark: #21443b;
+      --olive-mid: #296158;
+      --olive-light: #6e7f72;
+      --bone: #f4f1ea;
+      --white: #ffffff;
+      --gold: #f2b64c;
+      --text-main: #1f1f1f;
+      --text-muted: #666666;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background-color: var(--bone);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 72px 0;
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 22px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background-color: var(--gold);
+      color: var(--olive-dark);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.24);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      color: #ffffff;
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(14, 30, 26, 0.9);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      color: #ffffff;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      opacity: 0.85;
+    }
+    .nav-links a:hover {
+      opacity: 1;
+      color: var(--gold);
+    }
+
+    .nav-cta {
+      font-size: 12px;
+    }
+
+    /* HERO */
+    .hero {
+      background: radial-gradient(circle at top left, #2e6b61 0, #21443b 50%, #122521 100%);
+      color: #ffffff;
+      padding: 72px 0 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -55px;
+      transform: translateX(-50%);
+      width: 140%;
+      height: 120px;
+      background: var(--bone);
+      border-radius: 50% 50% 0 0;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: 34px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .hero-title span {
+      color: var(--gold);
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      max-width: 480px;
+      opacity: 0.9;
+      margin-bottom: 24px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .hero-tag-chip {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-right {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-photo-wrap {
+      width: 260px;
+      height: 260px;
+      border-radius: 999px;
+      background: radial-gradient(circle at top, #3cc7a5, #21443b);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    /* مكان الصورة – حطي صورة بلسانك هنا بعدين */
+    .hero-photo-inner {
+      width: 72%;
+      height: 72%;
+      border-radius: 999px;
+      background: #f4f1ea;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 46px;
+      font-weight: 700;
+      color: var(--olive-dark);
+    }
+
+    .hero-stats-bar {
+      position: absolute;
+      bottom: -26px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 30, 26, 0.96);
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      gap: 18px;
+      font-size: 11px;
+      align-items: center;
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 13px;
+      color: var(--gold);
+    }
+
+    /* REASONS SECTION (3 cards) */
+    .reasons-section {
+      padding-top: 80px; /* علشان الكيرف */
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .section-header h2 {
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+
+    .section-header p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .reason-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 18px 18px 20px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .reason-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: rgba(33, 68, 59, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .reason-card h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .reason-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .reason-link {
+      font-size: 12px;
+      color: var(--olive-mid);
+    }
+
+    /* STEPS SECTION + PHONE MOCKUP */
+    .steps-section {
+      background: #ffffff;
+    }
+
+    .steps-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .steps-list {
+      display: grid;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    .step-item-title {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .step-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: rgba(33, 68, 59, 0.1);
+      color: var(--olive-dark);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 13px;
+      margin-right: 8px;
+    }
+
+    .steps-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* PHONE MOCKUP */
+    .phone-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
+    .phone {
+      width: 220px;
+      height: 420px;
+      border-radius: 40px;
+      background: linear-gradient(145deg, #152924, #21443b);
+      border: 10px solid #111a18;
+      position: relative;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .phone::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .phone-screen {
+      width: 86%;
+      height: 86%;
+      border-radius: 28px;
+      background: radial-gradient(circle at top, #3fd1ab, #18332c);
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #f4f1ea;
+      font-size: 12px;
+    }
+
+    .phone-badge {
+      align-self: flex-start;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.35);
+      font-size: 11px;
+    }
+
+    .phone-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 8px;
+      margin-bottom: 6px;
+    }
+
+    .phone-stat-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      margin-top: 6px;
+    }
+
+    .phone-pill {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.32);
+      font-size: 10px;
+    }
+
+    .phone-bottom-card {
+      background: rgba(0, 0, 0, 0.32);
+      border-radius: 16px;
+      padding: 10px;
+      font-size: 11px;
+      margin-top: 10px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      }
+      .reasons-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .steps-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .phone-wrapper {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header { position: static; }
+      .nav-links { display: none; }
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+      }
+      .hero-right {
+        order: -1;
+      }
+      .hero-title { font-size: 28px; }
+      .reasons-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      section { padding: 56px 0; }
+    }
+  </style>
+</head>
+<body>
+
+
+  <header>
+    <div class="container nav">
+      <div class="logo">Mahmoud ElSobky</div>
+      <nav class="nav-links">
+        <a href="#hero">Hero</a>
+        <a href="#reasons">Reasons</a>
+        <a href="#steps">Process</a>
+      </nav>
+      <a href="#steps" class="nav-cta btn btn-outline">Let’s Talk</a>
+    </div>
+  </header>
+
+  <section id="hero" class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="tag">Flutter Developer · Mobile</div>
+        <h1 class="hero-title">
+          Hi, I'm <span>Mahmoud ElSobky</span> —<br />
+          I build elegant Flutter apps with solid architecture.
+        </h1>
+        <p class="hero-subtitle">
+          I design and build Flutter apps with clean architecture, predictable
+          state management and smooth UI that feels native on both Android and iOS.
+        </p>
+        <div class="hero-buttons">
+          <a href="#reasons" class="btn btn-primary">View projects</a>
+          <a href="#steps" class="btn btn-outline">How I work</a>
+        </div>
+        <div class="hero-tags">
+          <span class="hero-tag-chip">Flutter &amp; Dart</span>
+          <span class="hero-tag-chip">Clean Architecture</span>
+          <span class="hero-tag-chip">BLoC / Riverpod</span>
+          <span class="hero-tag-chip">Firebase · REST APIs</span>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-photo-wrap">
+          <div class="hero-photo-inner">
+            DA
+          </div>
+
+          <div class="hero-stats-bar">
+            <div class="hero-stat">
+              <strong>3+ yrs</strong>
+              <span>Flutter experience</span>
+            </div>
+            <div class="hero-stat">
+              <strong>10+</strong>
+              <span>Apps shipped</span>
+            </div>
+            <div class="hero-stat">
+              <strong>100k+</strong>
+              <span>Downloads</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reasons" class="reasons-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>3 reasons to work with me</h2>
+        <p>I care about structure, performance and a clean experience for users and developers.</p>
+      </div>
+
+      <div class="reasons-grid">
+        <div class="reason-card">
+          <div class="reason-icon">🧱</div>
+          <h3>Clean architecture</h3>
+          <p>Apps built with clear layers, SOLID principles and testable business logic.</p>
+          <a href="#" class="reason-link">See how I structure projects →</a>
+        </div>
+        <div class="reason-card">
+          <div class="reason-icon">🎨</div>
+          <h3>Pixel-perfect UI</h3>
+          <p>Implementing Figma designs in Flutter with attention to spacing, fonts and motion.</p>
+          <a href="#" class="reason-link">View UI work →</a>
+        </div>
+        <div class="reason-card">
+          <div class="reason-icon">🚀</div>
+          <h3>Production mindset</h3>
+          <p>Handling errors, analytics, crash reporting and release-ready builds.</p>
+          <a href="#" class="reason-link">Learn about my workflow →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="steps" class="steps-section">
+    <div class="container">
+      <div class="section-header" style="text-align:left;">
+        <h2>Follow these 3 simple steps to work together</h2>
+        <p>From idea to shipped Flutter app, here’s how the process usually looks.</p>
+      </div>
+
+      <div class="steps-layout">
+        <div>
+          <div class="steps-list">
+            <div>
+              <div class="step-item-title">
+                <span class="step-number">1</span>
+                Discovery & scope
+              </div>
+              <p class="steps-note">
+                We clarify what the app should do, target users and main features.
+              </p>
+            </div>
+            <div>
+              <div class="step-item-title">
+                <span class="step-number">2</span>
+                Architecture & UI
+              </div>
+              <p class="steps-note">
+                I design the Flutter project structure and align on the main screens and flows.
+              </p>
+            </div>
+            <div>
+              <div class="step-item-title">
+                <span class="step-number">3</span>
+                Build, test & launch
+              </div>
+              <p class="steps-note">
+                Implementation, testing, polishing and shipping to the stores with you.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="phone-wrapper">
+          <div class="phone">
+            <div class="phone-screen">
+              <div class="phone-badge">Flutter demo</div>
+              <div>
+                <div class="phone-title">Your app preview</div>
+                <p>Clean UI, smooth navigation and real backend data in one place.</p>
+              </div>
+
+              <div>
+                <div class="phone-stat-row">
+                  <span class="phone-pill">BLoC state</span>
+                  <span class="phone-pill">Clean layers</span>
+                </div>
+                <div class="phone-bottom-card">
+                  <strong>Live prototype</strong><br />
+                  I usually share a test build early so you can feel the app on your phone
+                  while we iterate.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+<section id="steps" class="steps-section">
+  <div class="container">
+    <div class="section-header" style="text-align:left;">
+      <h2>Follow these 3 simple steps to work together</h2>
+      <p>From idea to shipped Flutter app, here’s how the process usually looks.</p>
+    </div>
+
+    <div class="steps-layout">
+      <div>
+        <div class="steps-list">
+          <div>
+            <div class="step-item-title">
+              <span class="step-number">1</span>
+              Discovery &amp; scope
+            </div>
+            <p class="steps-note">
+              We clarify what the app should do, target users and main features.
+            </p>
+          </div>
+          <div>
+            <div class="step-item-title">
+              <span class="step-number">2</span>
+              Architecture &amp; UI
+            </div>
+            <p class="steps-note">
+              I design the Flutter project structure and align on the main screens and flows.
+            </p>
+          </div>
+          <div>
+            <div class="step-item-title">
+              <span class="step-number">3</span>
+              Build, test &amp; launch
+            </div>
+            <p class="steps-note">
+              Implementation, testing, polishing and shipping to the stores with you.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="steps-visual">
+        <div class="steps-oval">
+          <div class="phone-mock">
+            <div class="phone-screen">
+              <div class="phone-badge">Flutter demo</div>
+              <div>
+                <div class="phone-title">Your app preview</div>
+                <p>Clean UI, smooth navigation and real backend data in one place.</p>
+              </div>
+
+              <div>
+                <div class="phone-pill-row">
+                  <span class="phone-pill">BLoC state</span>
+                  <span class="phone-pill">Clean layers</span>
+                  <span class="phone-pill">Firebase</span>
+                </div>
+                <div class="phone-bottom-card">
+                  <strong>Live prototype</strong><br />
+                  I usually share a test build early so you can feel the app on
+                  your phone while we iterate together.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="steps-side">
+        <div class="steps-metrics">
+          <div><strong>3+ yrs</strong> Flutter experience</div>
+          <div><strong>10+</strong> Production mobile apps</div>
+          <div><strong>100k+</strong> Total downloads</div>
+        </div>
+
+        <div>
+          <div class="tech-chips-title">Key technical skills</div>
+          <div class="tech-chips">
+            <span class="tech-chip">Flutter &amp; Dart</span>
+            <span class="tech-chip">Clean Architecture</span>
+            <span class="tech-chip">BLoC</span>
+            <span class="tech-chip">Riverpod</span>
+            <span class="tech-chip">Firebase</span>
+            <span class="tech-chip">REST APIs</span>
+            <span class="tech-chip">CI/CD</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
