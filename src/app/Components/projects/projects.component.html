@@ -12,12 +12,12 @@
         </h2>
       </div>
 
-      <button class="btn-projects-cta">
+      <!-- <button class="btn-projects-cta">
         <span class="btn-projects-text">View All Projects</span>
         <span class="btn-projects-icon">
           <span class="btn-projects-icon-inner">➜</span>
         </span>
-      </button>
+      </button> -->
     </div>
 
     <!-- Grid -->
@@ -31,19 +31,20 @@
           <img [src]="project.image" [alt]="project.title" />
         </div>
 
-        <div class="project-tags">
+        <!-- <div class="project-tags">
           <span class="project-tag" *ngFor="let tag of project.tags">
             {{ tag }}
           </span>
-        </div>
+        </div> -->
 
         <div class="project-footer">
           <h3 class="project-title">{{ project.title }}</h3>
-
-          <button class="project-plus-btn">
+          
+          <!-- <button class="project-plus-btn">
             +
-          </button>
+          </button> -->
         </div>
+        <p class="project-desc">{{ project.description }}</p>
       </article>
     </div>
 

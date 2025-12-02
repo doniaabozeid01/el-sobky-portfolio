@@ -13,17 +13,17 @@ interface StatItem {
 export class AboutComponent {
 stats: StatItem[] = [
     { value: '13+', label: 'Project Completed' },
-    { value: '50+', label: 'Industry Covered' },
-    { value: '3+', label: 'Years of Experience' }
+    // { value: '50+', label: 'Industry Covered' },
+    { value: '2+', label: 'Years of Experience' }
   ];
 
   tags: string[] = [
-    'UX/UI Design',
+    // 'UX/UI Design',
     'Mobile App Design',
     'Website Design',
-    'Design System',
-    'Prototype',
+    // 'Design System',
+    // 'Prototype',
     'Dashboard',
-    'Wireframe Design'
+    // 'Wireframe Design'
   ];
 }

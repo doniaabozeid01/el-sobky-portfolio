@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-hero',
@@ -14,4 +15,33 @@ export class HeroComponent {
     'Branding',
     'Product Design'
   ];
+  constructor(@Inject(DOCUMENT) private document: Document) { }
+
+  scrollToSection(sectionId: string, event?: Event) {
+    if (event) event.preventDefault();
+
+    const el = this.document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // this.activeSection = sectionId;
+    // this.isMenuOpen = false;
+  }
+
+
+
+
+  skills: string[] = [
+    'App Design',
+    'Website Design',
+    'Dashboard',
+    'Wireframe',
+    'UI/UX Design',
+    'Mobile Design'
+  ];
+
+
+
+
 }

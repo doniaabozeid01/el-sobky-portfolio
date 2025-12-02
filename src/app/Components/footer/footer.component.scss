@@ -67,7 +67,7 @@
 /* ========== FOOTER ========== */
 
 .main-footer {
-  background: #214b33;
+  background: var(--color-primary);
   color: #ffffff;
   padding: 3.5rem 1.5rem 0;
 }
@@ -112,6 +112,7 @@
   margin: 1rem 0;
   color: #dcdcdc;
   font-size: 0.9rem;
+  max-width: 500px;
 }
 
 /* social icons */

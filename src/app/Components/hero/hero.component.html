@@ -1,5 +1,5 @@
 <!-- <section class="hero" > -->
-  <section id="hero" class="hero pt-4">
+<section id="hero" class="hero pt-4">
 
   <div class="hero-inner">
     <!-- LEFT -->
@@ -7,32 +7,41 @@
       <span class="hero-badge">Hello There!</span>
 
       <h1 class="hero-title">
-        I'm <span class="hero-title-accent fw-normal">Mahmoud ElSobky,</span><br />
+        I'm <span class="hero-title-accent fw-normal">Mahmoud Ahmed,</span><br />
         Flutter Developer<br />
         Building Mobile & Desktop Apps.
       </h1>
 
       <p class="hero-subtitle">
-        I'm a cross-platform Flutter developer with 3+ years of experience,
+        <!-- I'm a cross-platform Flutter developer with 3+ years of experience,
         building high-performance mobile (Android & iOS) and desktop
         applications. I focus on clean architecture, great UI/UX, and scalable
-        app performance.
+        app performance. -->
+        Experienced Software Engineer with over 2 years of specialized expertise in Flutter development. Proficient in
+        leading,
+        designing, developing high-quality mobile applications across diverse platforms. Demonstrated ability to lead
+        projects
+        from concept to completion, leveraging strong problem-solving skills and a deep understanding of software
+        development
+        life cycle (SDLC) and Software Management.
       </p>
 
-<div class="hero-actions">
+      <div class="hero-actions">
 
-  <!-- الزرار المركّب (CV / Portfolio) -->
-  <button class="btn-cta">
-    <span class="btn-cta-text">View My CV</span>
-    <span class="btn-cta-icon">
-      <span class="btn-cta-icon-inner">▶</span>
-    </span>
-  </button>
+        <!-- الزرار المركّب (CV / Portfolio) -->
+        <a class="btn-cta" href="../../../assets/Mahmoud Ahmed Mohamed.pdf" target="_blank" rel="noopener noreferrer">
 
-  <!-- زرار Hire Me -->
-  <button class="btn-hire">Hire Me</button>
+          <span class="btn-cta-text">View My CV</span>
+          <span class="btn-cta-icon">
+            <span class="btn-cta-icon-inner">▶</span>
+          </span>
+        </a>
 
-</div>
+
+        <!-- زرار Hire Me -->
+        <button class="btn-hire" (click)="scrollToSection('contact')">Hire Me</button>
+
+      </div>
 
 
 
@@ -45,17 +54,66 @@
 
       <!-- صورتك -->
       <div class="hero-image-wrapper">
-        <img
-          src="assets/images/mahmoud.png"
-          alt="Mahmoud Elsobky"
-          class="hero-image"
-        />
+        <img src="../../../assets/22.png" alt="Mahmoud Elsobky" class="hero-image" />
       </div>
 
       <!-- التاجات -->
-      <div class="hero-tag hero-tag-top">Hire Me</div>
+      <!-- <div class="hero-tag hero-tag-top">Hire Me</div> -->
       <div class="hero-tag hero-tag-middle">Flutter Developer</div>
       <div class="hero-tag hero-tag-bottom">Mobile & Desktop Apps</div>
+    </div>
+  </div>
+
+</section>
+
+
+
+<!-- <section class="skills-strip">
+  <div class="skills-strip-inner">
+    <div class="skills-list justify-content-center">
+      <ng-container *ngFor="let skill of skills; let i = index">
+        <span class="skill-text">{{ skill }}</span>
+        <span *ngIf="i < skills.length - 1" class="separator">*</span>
+
+      </ng-container>
+    </div>
+  </div>
+</section> -->
+
+
+
+
+
+<section class="skills-strip d-md-none d-flex">
+  <div class="skills-strip-inner">
+    <div class="skills-track">
+      <!-- نكرّر الليست مرّتين علشان الـ loop يبقى سلس -->
+      <div class="skills-list " *ngFor="let repeat of [0, 1]" >
+        <ng-container *ngFor="let skill of skills; let i = index">
+          <span class="skill-text">{{ skill }}</span>
+          <span *ngIf="i < skills.length - 1" class="separator">*</span>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="skills-strip d-md-flex d-none">
+  <div class="skills-strip-inner">
+    <div class="skills-track">
+      <!-- نكرّر الليست مرّتين علشان الـ loop يبقى سلس -->
+      <div class="skills-list" >
+        <ng-container *ngFor="let skill of skills; let i = index">
+          <span class="skill-text">{{ skill }}</span>
+          <span *ngIf="i < skills.length - 1" class="separator">*</span>
+        </ng-container>
+      </div>
     </div>
   </div>
 </section>

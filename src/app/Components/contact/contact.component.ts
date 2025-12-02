@@ -25,8 +25,8 @@ export class ContactComponent {
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: [''],
-      interest: ['', Validators.required],
-      budget: ['', Validators.required],
+      // interest: ['', Validators.required],
+      // budget: ['', Validators.required],
       country: ['', Validators.required],
       message: ['', Validators.required],
     });

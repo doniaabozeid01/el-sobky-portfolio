@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 interface ToolItem {
   name: string;
-  percent: number;
-  icon: string; // ممكن path لصورة، أو كلاس لآيكون
+  img: string; // ممكن path لصورة، أو كلاس لآيكون
 }
 @Component({
   selector: 'app-tools',
@@ -10,12 +9,43 @@ interface ToolItem {
   styleUrls: ['./tools.component.scss']
 })
 export class ToolsComponent {
-  tools: ToolItem[] = [
-    { name: 'Figma',       percent: 98, icon: 'assets/icons/figma.png' },
-    { name: 'Sketch',      percent: 92, icon: 'assets/icons/sketch.png' },
-    { name: 'Photoshop',   percent: 90, icon: 'assets/icons/ps.png' },
-    { name: 'After Effects', percent: 85, icon: 'assets/icons/ae.png' },
-    { name: 'Storybook',   percent: 90, icon: 'assets/icons/storybook.png' },
-    { name: 'InVision',    percent: 95, icon: 'assets/icons/invision.png' }
+ tools: ToolItem[] = [
+  {
+    img: '../../../assets/tools/1.jpg',
+    name: 'Flutter SDK'
+  },
+  {
+    img: '../../../assets/tools/2.jpg',
+    name: 'Android Studio'
+  },
+  {
+    img: '../../../assets/tools/3.jpg',
+    name: 'Visual Studio'
+  },
+  {
+    img: '../../../assets/tools/4.jpg',
+    name: 'Android Emulator & iOS Simulator'
+  },
+  {
+    img: '../../../assets/tools/5.jpg',
+    name: 'Figma / Adobe XD'
+  },
+  {
+    img: '../../../assets/tools/6.jpg',
+    name: 'Firebase'
+  },
+  {
+    img: '../../../assets/tools/7.jpg',
+    name: 'Postman'
+  },
+  {
+    img: '../../../assets/tools/8.jpg',
+    name: 'Git & GitHub'
+  },
+  {
+    img: '../../../assets/tools/9.jpg',
+    name: 'Pub.dev Packages'
+  }
+
   ];
 }

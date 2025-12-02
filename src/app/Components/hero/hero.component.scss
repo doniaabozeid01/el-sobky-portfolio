@@ -1,5 +1,5 @@
 .hero {
-  min-height: calc(100vh - 80px); // ارتفاع محترم بدون ما يجبرك على فول سكريم
+  min-height: calc(90vh - 80px); // ارتفاع محترم بدون ما يجبرك على فول سكريم
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,14 +45,14 @@
 
 
 .hero-title-accent::after {
-//   color: var(--color-accent);
-position: absolute;
-content: '';
-width: 100%;
-height: 2px;
-background-color: var(--color-accent);
-bottom: -2px;
-right: 0;
+  //   color: var(--color-accent);
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-accent);
+  bottom: -2px;
+  right: 0;
 }
 
 
@@ -78,23 +78,23 @@ right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 320px;
+  min-height: 500px;
 }
 
 .hero-circle {
   position: absolute;
-  width: 280px;
-  height: 280px;
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
   background: var(--color-accent);
-  right: 10%;
-  top: 10%;
+  right: 20%;
+  top: 15%;
   z-index: 0;
 }
 
 .hero-image-wrapper {
   position: relative;
-  width: 320px;
+  width: 300px;
   max-width: 100%;
   z-index: 1;
 }
@@ -102,6 +102,8 @@ right: 0;
 .hero-image {
   width: 100%;
   display: block;
+  max-height: 450px;
+  object-fit: fill;
   border-radius: 0 0 80px 80px;
 }
 
@@ -113,6 +115,7 @@ right: 0;
   border-radius: var(--radius-pill);
   font-size: 0.8rem;
   white-space: nowrap;
+  z-index: 2;
 }
 
 .hero-tag-top {
@@ -193,12 +196,6 @@ right: 0;
 
 
 
-
-
-
-
-
-
 .btn-cta {
   position: relative;
   display: inline-flex;
@@ -273,31 +270,160 @@ right: 0;
 
 
 
+a {
+  text-decoration: none;
+}
 
 
 
 
 
+/* الشريط اللي تحت الهيرو */
+.skills-strip {
+  background: var(--color-primary);
+  /* الأخضر */
+  padding-top: 8px;
+  padding-bottom: 8px;
+  transform: rotateZ(-1.5deg);
+
+}
+
+.skills-strip-inner {
+  // max-width: 1120px;
+  margin: 0 auto;
+  background: var(--color-accent);
+  /* الأورانج */
+  // border-radius: 40px 40px 0 0;
+  padding: 10px 40px;
+  overflow-x: auto;
+  transform: rotateZ(1.5deg);
+}
+
+/* خط بسيط أخضر مائل شبيه بالديزاين الأصلي (اختياري) */
+.skills-strip-inner::before {
+  content: '';
+  position: absolute;
+}
+
+/* ليست العناصر */
+.skills-list {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  white-space: nowrap;
+}
 
 
 
 
+.skill-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+  /* مساحة للنجمة */
+}
+
+.skill-item::before {
+  content: '*';
+  position: absolute;
+  left: 0;
+  color: #000;
+  font-size: 1.4rem;
+  opacity: 0.8;
+}
+
+.skill-item:first-child::before {
+  content: '';
+}
+
+
+/* موبايل */
+@media (max-width: 768px) {
+  .skills-strip-inner {
+    padding: 8px 20px;
+    overflow: hidden;
+
+    // border-radius: 30px 30px 0 0;
+  }
+
+  .skills-list {
+    gap: 24px;
+  }
+
+  .skill-item {
+    font-size: 0.85rem;
+  }
+}
 
 
 
 
+/* الـ track اللي هنحرّكه */
 
 
+/* الليست نفسها */
+.skills-list {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  white-space: nowrap;
+}
+
+.skill-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.separator {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
 
 
+.skills-strip {
+  width: 100%;
+  // overflow: hidden;
+  background: var(--color-primary);
+  padding-top: 8px;
+}
+
+.skills-strip-inner {
+  width: 100%;              /* أهم سطر */
+  background: var(--color-accent);
+  padding: 10px 40px;
+  overflow-x: hidden;
+}
 
 
+@media (max-width: 768px) {
+  .skills-strip-inner {
+    padding-inline: 20px;
+  }
 
 
+  .skills-track {
+    display: flex;
+    width: max-content;
+  }
 
 
+  .skills-track {
+    animation: skills-marquee-ltr 15s linear infinite;
+  }
+}
 
+/* الحركة: من الشمال لليمين في لفة مستمرة */
+@keyframes skills-marquee-ltr {
+  0% {
+    transform: translateX(-50%);
+    /* نص التراك برا من الشمال */
+  }
 
-
-
-
+  100% {
+    transform: translateX(0);
+    /* يتحرك لليمين */
+  }
+}

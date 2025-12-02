@@ -10,9 +10,9 @@
   --color-text: #222222;
   --color-muted: #555555;
 
-  --color-primary: #214b33;   /* أخضر */
-  --color-primary-dark: #123222;
-  --color-accent: #f9b234;    /* أصفر */
+  --color-primary: #000000;   /* أخضر */
+  --color-primary-dark: #171418;
+  --color-accent: #dfb325;    /* أصفر */
 
   --radius-pill: 999px;
   --radius-lg: 24px;
@@ -20,6 +20,28 @@
   --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
 }
+
+
+
+
+
+
+// :root {
+//   --color-bg: #ffffff;
+//   --color-text: #222222;
+//   --color-muted: #555555;
+
+//   --color-primary: #214b33;   /* أخضر */
+//   --color-primary-dark: #123222;
+//   --color-accent: #f9b234;    /* أصفر */
+
+//   --radius-pill: 999px;
+//   --radius-lg: 24px;
+
+//   --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+//     sans-serif;
+// }
+
 
 /* جسم الصفحة */
 html,

@@ -7,18 +7,11 @@
         <div class="about-photo-bg"></div>
 
         <div class="about-photo-circle">
-          <img
-            src="assets/images/mahmoud.png"
-            alt="Mahmoud ElSobky"
-          />
+          <img src="../../../assets/22.png" alt="Mahmoud ElSobky" />
         </div>
 
         <!-- التاجات حوالين الصورة -->
-        <div
-          class="about-tag"
-          *ngFor="let tag of tags; let i = index"
-          [ngClass]="'about-tag-' + i"
-        >
+        <div class="about-tag" *ngFor="let tag of tags; let i = index" [ngClass]="'about-tag-' + i">
           {{ tag }}
         </div>
       </div>
@@ -29,13 +22,13 @@
       <span class="about-eyebrow">— About Me</span>
 
       <h2 class="about-title">
-        Who is <span>Mahmoud ElSobky?</span>
+        Who is <span>Mahmoud Ahmed?</span>
       </h2>
 
       <p class="about-desc">
-        Mahmoud ElSobky is a passionate Frontend &amp; UI developer who loves
-        crafting clean interfaces and smooth user experiences using Angular and modern web
-        technologies.
+        Software Engineer and Flutter Developer with 2 years of practical experience delivering high-quality mobile
+        applications. I’ve successfully built and launched more than 13 real-world projects, focusing on clean
+        architecture, performance, and creating seamless user experiences across Android and iOS platforms.
       </p>
 
       <div class="about-stats">
@@ -46,12 +39,22 @@
       </div>
 
       <div class="about-actions">
-        <button class="btn-about-cta">
+        <!-- <button class="btn-about-cta">
           <span class="btn-about-text">Download CV</span>
           <span class="btn-about-icon">
             <span class="btn-about-icon-inner">➜</span>
           </span>
-        </button>
+        </button> -->
+
+
+        <a class="btn-about-cta" href="../../../assets/Mahmoud Ahmed Mohamed.pdf" download="Mahmoud-ElSobky-CV.pdf">
+
+          <span class="btn-about-text">Download CV</span>
+          <span class="btn-about-icon">
+            <span class="btn-about-icon-inner">➜</span>
+          </span>
+
+        </a>
 
         <span class="about-signature">Mahmoud ElSobky</span>
       </div>
