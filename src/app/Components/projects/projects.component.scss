@@ -95,7 +95,7 @@
   border-radius: 18px;
   display: block;
   object-fit: fill;
-  height: 350px;
+  height: 380px;
 }
 
 /* tags */
@@ -130,9 +130,9 @@
 }
 
 
-.project-desc{
-    font-weight: 350;
-    color: gray;
+.project-desc {
+  font-weight: 350;
+  color: gray;
 }
 
 .project-plus-btn {
@@ -157,6 +157,20 @@
     flex-direction: column;
     align-items: flex-start;
   }
+
+
+
+
+  .project-image img {
+    width: 100%;
+    border-radius: 18px;
+    display: block;
+    object-fit: fill;
+    height: 250px;
+  }
+
+
+
 }
 
 @media (max-width: 640px) {
@@ -170,5 +184,16 @@
 
   .btn-projects-cta {
     align-self: flex-end;
+  }
+
+
+
+
+  .project-image img {
+    width: 100%;
+    border-radius: 18px;
+    display: block;
+    object-fit: fill;
+    height: 250px;
   }
 }

@@ -1,5 +1,5 @@
 <!-- <section class="contact-section"> -->
-    <section id="contact" class="contact-section">
+<section id="contact" class="contact-section">
 
   <div class="contact-inner">
 
@@ -13,7 +13,8 @@
       </h2>
 
       <p class="contact-text">
-        I’m always open to discussing new mobile app ideas, collaborating on exciting projects, or helping bring your product to life with Flutter.
+        I’m always open to discussing new mobile app ideas, collaborating on exciting projects, or helping bring your
+        product to life with Flutter.
 
       </p>
 
@@ -49,7 +50,7 @@
     </div>
 
     <!-- RIGHT SIDE: FORM -->
-    <div class="contact-right" appScrollReveal="from-right">
+    <!-- <div class="contact-right" appScrollReveal="from-right">
       <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
 
         <div class="form-grid">
@@ -68,29 +69,7 @@
             <input type="text" placeholder="Enter Phone Number" formControlName="phone" />
           </div>
 
-          <!-- <div class="form-field">
-            <label>I'm Interested in *</label>
-            <select formControlName="interest">
-              <option value="" disabled selected>Select</option>
-              <option>UI/UX Design</option>
-              <option>Mobile App Design</option>
-              <option>Website Design</option>
-              <option>Branding</option>
-            </select>
-          </div> -->
-
-          <!-- <div class="form-field">
-            <label>Budget Range (USD) *</label>
-            <select formControlName="budget">
-              <option value="" disabled selected>Select Range</option>
-              <option>$500 - $1,000</option>
-              <option>$1,000 - $3,000</option>
-              <option>$3,000 - $5,000</option>
-              <option>$5,000+</option>
-            </select>
-          </div> -->
-
-          <div class="form-field">
+         <div class="form-field">
             <label>Country *</label>
             <input type="text" placeholder="Enter Country" formControlName="country" />
           </div>
@@ -103,6 +82,103 @@
 
         <div class="contact-footer text-center justify-content-center">
           <button class="btn-submit " type="submit" [disabled]="isSending">
+            <span class="btn-submit-text">
+              {{ isSending ? 'Sending...' : 'Submit' }}
+            </span>
+            <span class="btn-submit-icon">
+              <span class="btn-submit-icon-inner">➜</span>
+            </span>
+          </button>
+
+          <div class="status" *ngIf="successMessage || errorMessage">
+            <span class="success" *ngIf="successMessage">{{ successMessage }}</span>
+            <span class="error" *ngIf="errorMessage">{{ errorMessage }}</span>
+          </div>
+        </div>
+
+      </form>
+    </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- RIGHT SIDE: FORM -->
+    <div class="contact-right" appScrollReveal="from-right">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-grid">
+          <!-- Name -->
+          <div class="form-field">
+            <label>Your Name *</label>
+            <input type="text" placeholder="Ex. John Doe" formControlName="name" />
+            <div class="field-error" *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid">
+              <span *ngIf="contactForm.get('name')?.hasError('required')">
+                Name is required.
+              </span>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="form-field">
+            <label>Email *</label>
+            <input type="email" placeholder="example@gmail.com" formControlName="email" />
+            <div class="field-error" *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid">
+              <span *ngIf="contactForm.get('email')?.hasError('required')">
+                Email is required.
+              </span>
+              <span *ngIf="contactForm.get('email')?.hasError('email')">
+                Please enter a valid email address.
+              </span>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="form-field">
+            <label>Phone *</label>
+            <input type="text" placeholder="Enter Phone Number" formControlName="phone" />
+            <div class="field-error" *ngIf="contactForm.get('phone')?.touched && contactForm.get('phone')?.invalid">
+              <span *ngIf="contactForm.get('phone')?.hasError('required')">
+                Phone number is required.
+              </span>
+            </div>
+          </div>
+
+          <!-- Country -->
+          <div class="form-field">
+            <label>Country *</label>
+            <input type="text" placeholder="Enter Country" formControlName="country" />
+            <div class="field-error" *ngIf="contactForm.get('country')?.touched && contactForm.get('country')?.invalid">
+              <span *ngIf="contactForm.get('country')?.hasError('required')">
+                Country is required.
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Message -->
+        <div class="form-field full">
+          <label>Your Message *</label>
+          <textarea rows="5" placeholder="Enter here..." formControlName="message"></textarea>
+          <div class="field-error" *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.invalid">
+            <span *ngIf="contactForm.get('message')?.hasError('required')">
+              Message is required.
+            </span>
+          </div>
+        </div>
+
+        <!-- Footer: button + status -->
+        <div class="contact-footer text-center  flex-column  justify-content-center">
+          <button class="btn-submit" type="submit" [disabled]="isSending">
             <span class="btn-submit-text">
               {{ isSending ? 'Sending...' : 'Submit' }}
             </span>

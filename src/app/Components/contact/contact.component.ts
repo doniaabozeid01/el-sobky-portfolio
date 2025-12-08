@@ -1,37 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-// import emailjs from '@emailjs/browser';
-
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
 
   contactForm: FormGroup;
   isSending = false;
   successMessage = '';
   errorMessage = '';
 
-  // حطّي هنا البيانات من EmailJS
-  private serviceId = 'YOUR_SERVICE_ID';
-  private templateId = 'YOUR_TEMPLATE_ID';
-  private publicKey = 'YOUR_PUBLIC_KEY';
+  // EmailJS Config
+  // private serviceId = 'service_4bq8p9a';
+  private serviceId = 'service_6tw6kl6';
+  private templateId = 'template_yje69ju';
+  private publicKey = 's96Hns05YE3JbYABT';
 
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: [''],
-      // interest: ['', Validators.required],
-      // budget: ['', Validators.required],
+      phone: ['', Validators.required],
       country: ['', Validators.required],
       message: ['', Validators.required],
     });
+  }
 
-    // emailjs.init(this.publicKey);
+  ngOnInit(): void {
+    emailjs.init(this.publicKey);
   }
 
   async onSubmit() {
@@ -48,23 +48,21 @@ export class ContactComponent {
     const formValue = this.contactForm.value;
 
     const templateParams = {
-      to_email: 'doniaabozeid16@gmail.com', // المستلم
       from_name: formValue.name,
       from_email: formValue.email,
       phone: formValue.phone,
-      interest: formValue.interest,
-      budget: formValue.budget,
       country: formValue.country,
       message: formValue.message,
+      subject: 'New contact request from portfolio website'
     };
 
     try {
-      // await emailjs.send(this.serviceId, this.templateId, templateParams);
-      this.successMessage = 'تم إرسال رسالتك بنجاح ♥';
+      await emailjs.send(this.serviceId, this.templateId, templateParams);
+      this.successMessage = 'your message has been sent successfully!';
       this.contactForm.reset();
     } catch (err) {
       console.error(err);
-      this.errorMessage = 'حصل خطأ أثناء الإرسال، حاولي تاني.';
+      this.errorMessage = 'An error occurred while sending your message. Please try again later.';
     } finally {
       this.isSending = false;
     }

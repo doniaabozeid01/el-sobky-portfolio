@@ -208,3 +208,19 @@ textarea {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+.field-error {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--color-accent) // أحمر لطيف
+}
