@@ -23,7 +23,7 @@ export class ProjectsComponent {
     },
     {
       title: 'Bubble Hope Dashboard – Desktop Management System',
-      image: '../../../assets/projects/Mock up Donia.png',
+      image: '../../../assets/projects/Mock up Donia (1).png',
       description:
         'A desktop dashboard to manage products, discounts, images, campaigns, and categories for Bubble Hope.'
     },
