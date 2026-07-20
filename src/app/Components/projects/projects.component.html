@@ -1,52 +1,48 @@
-<!-- <section class="projects-section"> -->
-  <section id="projects" class="projects-section">
-
-  <div class="projects-inner">
-
-    <!-- Header -->
-    <div class="projects-header">
-      <div>
-        <span class="section-eyebrow">— My Portfolio</span>
-        <h2 class="projects-title">
-          My Latest <span>Projects</span>
-        </h2>
-      </div>
-
-      <!-- <button class="btn-projects-cta">
-        <span class="btn-projects-text">View All Projects</span>
-        <span class="btn-projects-icon">
-          <span class="btn-projects-icon-inner">➜</span>
-        </span>
-      </button> -->
+<section id="work" class="work">
+  <div class="container">
+    <div class="work-head" appScrollReveal="from-bottom">
+      <p class="section-label">03 — Selected Work</p>
+      <span>{{ projects.length }} projects</span>
     </div>
 
-    <!-- Grid -->
-    <div class="projects-grid">
+    <div class="work-list">
       <article
-        class="project-card"
-        *ngFor="let project of projects"
-        appScrollReveal="from-bottom"
+        class="work-row"
+        *ngFor="let project of projects; let i = index"
+        appScrollReveal="flip-up"
+        [revealDelay]="i * 50"
+        (mouseenter)="hovered = i"
+        (mouseleave)="hovered = -1"
+        [class.is-hovered]="hovered === i"
       >
-        <div class="project-image">
+        <div class="preview" *ngIf="hovered === i">
           <img [src]="project.image" [alt]="project.title" />
         </div>
 
-        <!-- <div class="project-tags">
-          <span class="project-tag" *ngFor="let tag of project.tags">
-            {{ tag }}
-          </span>
-        </div> -->
-
-        <div class="project-footer">
-          <h3 class="project-title">{{ project.title }}</h3>
-          
-          <!-- <button class="project-plus-btn">
-            +
-          </button> -->
+        <div class="row-main">
+          <span class="num">{{ project.num }}</span>
+          <h3 [style.color]="hovered === i ? project.accent : '#fff'">{{ project.title }}</h3>
+          <div class="meta">
+            <span class="category">{{ project.category }}</span>
+            <div class="tags">
+              <span *ngFor="let tag of project.tags.slice(0, 2)">{{ tag }}</span>
+            </div>
+            <span class="year">{{ project.year }}</span>
+          </div>
+          <div
+            class="arrow"
+            [style.background]="hovered === i ? project.accent : 'transparent'"
+            [style.border-color]="hovered === i ? project.accent : 'rgba(255,255,255,0.1)'"
+          >
+            <i
+              class="fa-solid fa-arrow-up-right-from-square"
+              [style.color]="hovered === i ? '#070c12' : 'rgba(255,255,255,0.3)'"
+            ></i>
+          </div>
         </div>
-        <p class="project-desc">{{ project.description }}</p>
+
+        <p class="desc" [class.open]="hovered === i">{{ project.desc }}</p>
       </article>
     </div>
-
   </div>
 </section>

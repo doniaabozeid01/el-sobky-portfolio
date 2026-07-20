@@ -1,64 +1,73 @@
-<section id="about" class="about-section">
-  <div class="about-inner">
+<section id="about" class="about">
+  <div class="container">
+    <p class="section-label" appScrollReveal="from-bottom">02 — About</p>
 
-    <!-- LEFT: الصورة والدويرة -->
-    <div class="about-left" appScrollReveal="from-left">
-      <div class="about-photo-wrapper">
-        <div class="about-photo-bg"></div>
-
-        <div class="about-photo-circle">
-          <img src="../../../assets/22.png" alt="Mahmoud ElSobky" />
-        </div>
-
-        <!-- التاجات حوالين الصورة -->
-        <div class="about-tag" *ngFor="let tag of tags; let i = index" [ngClass]="'about-tag-' + i">
-          {{ tag }}
-        </div>
+    <div class="about-row">
+      <div class="about-bio" appScrollReveal="flip-left">
+        <h2>
+          I obsess over the details that separate a
+          <span class="accent">good app</span> from a
+          <em>great one</em>.
+        </h2>
+        <p>
+          2+ years building Flutter products across mobile, desktop &amp; web.
+          I care about clean architecture, performance, and every micro-interaction the user touches.
+        </p>
       </div>
-    </div>
-
-    <!-- RIGHT: النصوص -->
-    <div class="about-right" appScrollReveal="from-right">
-      <span class="about-eyebrow">— About Me</span>
-
-      <h2 class="about-title">
-        Who is <span>Mahmoud Ahmed?</span>
-      </h2>
-
-      <p class="about-desc">
-        Software Engineer and Flutter Developer with 2 years of practical experience delivering high-quality mobile
-        applications. I’ve successfully built and launched more than 13 real-world projects, focusing on clean
-        architecture, performance, and creating seamless user experiences across Android and iOS platforms.
-      </p>
 
       <div class="about-stats">
-        <div class="about-stat" *ngFor="let stat of stats">
-          <div class="about-stat-value">{{ stat.value }}</div>
-          <div class="about-stat-label">{{ stat.label }}</div>
+        <div class="stat-card accent" appScrollReveal="zoom" [revealDelay]="100">
+          <span class="label">Experience</span>
+          <div class="stat-bottom">
+            <div>
+              <strong>2+</strong>
+              <p>Years of building</p>
+            </div>
+            <div class="rings" aria-hidden="true"></div>
+          </div>
         </div>
-      </div>
-
-      <div class="about-actions">
-        <!-- <button class="btn-about-cta">
-          <span class="btn-about-text">Download CV</span>
-          <span class="btn-about-icon">
-            <span class="btn-about-icon-inner">➜</span>
-          </span>
-        </button> -->
-
-
-        <a class="btn-about-cta" href="../../../assets/Mahmoud Ahmed Mohamed.pdf" download="Mahmoud-ElSobky-CV.pdf">
-
-          <span class="btn-about-text">Download CV</span>
-          <span class="btn-about-icon">
-            <span class="btn-about-icon-inner">➜</span>
-          </span>
-
-        </a>
-
-        <span class="about-signature">Mahmoud ElSobky</span>
+        <div class="stat-card" appScrollReveal="zoom" [revealDelay]="200">
+          <span class="label">Delivered</span>
+          <strong>13+</strong>
+          <p>Projects shipped</p>
+        </div>
       </div>
     </div>
 
+    <div class="about-row second">
+      <div class="platform-card" appScrollReveal="from-bottom" [revealDelay]="80">
+        <span class="label">Platforms</span>
+        <div class="platform" *ngFor="let p of platforms; let i = index">
+          <div class="platform-top">
+            <span>{{ p.label }}</span>
+            <small>{{ p.sub }}</small>
+          </div>
+          <div class="bar">
+            <div class="fill" [style.--w.%]="p.pct" [style.transition-delay.ms]="200 + i * 150"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-card" appScrollReveal="flip-up" [revealDelay]="160">
+        <span class="marks">"</span>
+        <div>
+          <p class="quote">Code is read far more often than it is written.</p>
+          <small>— Clean Code, a principle I live by</small>
+        </div>
+      </div>
+
+      <div class="status-card" appScrollReveal="zoom" [revealDelay]="240">
+        <div class="status-top">
+          <span class="dot"></span>
+          <span class="label accent">Status</span>
+        </div>
+        <p class="status-title">
+          Open to<br /><span>Opportunities</span>
+        </p>
+        <button type="button" (click)="scrollToContact()">
+          Get in touch <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </button>
+      </div>
+    </div>
   </div>
 </section>

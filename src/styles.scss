@@ -1,49 +1,33 @@
-/* reset بسيط */
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 :root {
-  --color-bg: #ffffff;
-  --color-text: #222222;
-  --color-muted: #555555;
+  --bg: #070c12;
+  --bg-alt: #0a1018;
+  --card: #0d1620;
+  --text: #e8f0f7;
+  --muted: rgba(255, 255, 255, 0.3);
+  --muted-soft: rgba(255, 255, 255, 0.2);
+  --line: rgba(255, 255, 255, 0.08);
+  --accent: #4fc3f7;
+  --accent-ink: #070c12;
 
-  --color-primary: #000000;   /* أخضر */
-  --color-primary-dark: #171418;
-  --color-accent: #dfb325;    /* أصفر */
-
-  --radius-pill: 999px;
-  --radius-lg: 24px;
-
-  --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-main: "DM Sans", sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --max: 1400px;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
 
-
-
-
-
-// :root {
-//   --color-bg: #ffffff;
-//   --color-text: #222222;
-//   --color-muted: #555555;
-
-//   --color-primary: #214b33;   /* أخضر */
-//   --color-primary-dark: #123222;
-//   --color-accent: #f9b234;    /* أصفر */
-
-//   --radius-pill: 999px;
-//   --radius-lg: 24px;
-
-//   --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-//     sans-serif;
-// }
-
-
-/* جسم الصفحة */
 html,
 body {
   height: 100%;
@@ -51,201 +35,151 @@ body {
 
 body {
   font-family: var(--font-main);
-  background: var(--color-bg);
-  color: var(--color-text);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-/* أزرار عامة */
-.btn {
-  border-radius: var(--radius-pill);
-  padding: 0.55rem 1.6rem;
-  border: none;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  font-weight: 900;
 }
 
-.btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+img {
+  max-width: 100%;
+  display: block;
 }
 
-/* primary */
-.btn-primary {
-  background: var(--color-primary);
-  color: #fff;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-/* outline داكن */
-.btn-outline {
-  background: transparent;
-  color: var(--color-primary);
-  border: 1px solid var(--color-primary);
+button {
+  font-family: inherit;
 }
 
-/* زرار أبيض */
-.btn-white {
-  background: #ffffff;
-  color: var(--color-primary);
-  border: 1px solid #e5e5e5;
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
 }
 
-/* نصوص عامة لو حبيتي */
-.text-muted {
-  color: var(--color-muted);
+.section-label {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.2);
 }
 
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-inline: 2rem;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ===== Scroll Reveal Animations ===== */
-
+/* ===== Premium scroll reveals ===== */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
+  will-change: transform, opacity, filter;
   transition:
-    opacity 0.8s ease-out,
-    transform 0.8s ease-out;
+    opacity 0.55s var(--ease-out),
+    transform 0.55s var(--ease-out),
+    filter 0.55s var(--ease-out),
+    clip-path 0.6s var(--ease-out);
 }
 
-/* اتجاهات مختلفة */
-.reveal-from-bottom {
-  transform: translateY(40px);
+.reveal-from-bottom { transform: translateY(32px); }
+.reveal-from-left { transform: translateX(-28px); }
+.reveal-from-right { transform: translateX(28px); }
+.reveal-fade { transform: none; filter: blur(5px); }
+.reveal-zoom { transform: scale(0.92); filter: blur(1px); }
+.reveal-blur { transform: translateY(14px); filter: blur(8px); }
+.reveal-flip-up {
+  transform: perspective(1200px) rotateX(22deg) translateY(24px);
+  transform-origin: center bottom;
+  filter: blur(1px);
+}
+.reveal-flip-left {
+  transform: perspective(1200px) rotateY(-24deg) translateX(-28px);
+  transform-origin: left center;
+  filter: blur(1px);
+}
+.reveal-flip-right {
+  transform: perspective(1200px) rotateY(24deg) translateX(28px);
+  transform-origin: right center;
+  filter: blur(1px);
+}
+.reveal-spin {
+  transform: rotate(-6deg) scale(0.94) translateY(16px);
+  filter: blur(1px);
+}
+.reveal-clip {
+  transform: translateY(12px);
+  clip-path: inset(0 0 100% 0);
 }
 
-.reveal-from-left {
-  transform: translateX(-40px);
-}
-
-.reveal-from-right {
-  transform: translateX(40px);
-}
-
-.reveal.fade {
-  transform: none;
-}
-
-/* أول ما يدخل في الشاشة */
-.reveal.reveal-visible {
-  opacity: 1;
-  transform: translateX(0) translateY(0);
-}
-
-/* شوية delays لسكاشن فيها كروت كتير */
-.features .card:nth-child(1),
-.services .srv-card:nth-child(1) {
-  transition-delay: 0.05s;
-}
-
-.features .card:nth-child(2),
-.services .srv-card:nth-child(2) {
-  transition-delay: 0.15s;
-}
-
-.features .card:nth-child(3),
-.services .srv-card:nth-child(3) {
-  transition-delay: 0.25s;
-}
-
-
-
-
-
-/* Base */
-.reveal {
-  opacity: 0;
-  transition:
-    opacity 0.8s ease-out,
-    transform 0.8s ease-out;
-}
-
-/* from bottom */
-.reveal-from-bottom {
-  transform: translateY(40px);
-}
-
-/* from left */
-.reveal-from-left {
-  transform: translateX(-40px);
-}
-
-/* from right */
-.reveal-from-right {
-  transform: translateX(40px);
-}
-
-/* fade (مفيش حركة، بس شفافية) */
-.reveal-fade {
-  opacity: 0.3;
-  transform: none; 
-}
-
-/* visible */
+.reveal.reveal-visible,
 .reveal-visible {
   opacity: 1;
-  transform: translateX(0) translateY(0);
+  transform: none;
+  filter: none;
+  clip-path: inset(0 0 0 0);
 }
 
+/* Stagger helpers for grids */
+.services-grid .service:nth-child(1),
+.tools-wrap span:nth-child(1),
+.work-list .work-row:nth-child(1) { transition-delay: 0.03s; }
+.services-grid .service:nth-child(2),
+.tools-wrap span:nth-child(2),
+.work-list .work-row:nth-child(2) { transition-delay: 0.07s; }
+.services-grid .service:nth-child(3),
+.tools-wrap span:nth-child(3),
+.work-list .work-row:nth-child(3) { transition-delay: 0.11s; }
+.services-grid .service:nth-child(4),
+.tools-wrap span:nth-child(4),
+.work-list .work-row:nth-child(4) { transition-delay: 0.15s; }
+.services-grid .service:nth-child(5),
+.tools-wrap span:nth-child(5) { transition-delay: 0.19s; }
+.services-grid .service:nth-child(6),
+.tools-wrap span:nth-child(6) { transition-delay: 0.23s; }
+.tools-wrap span:nth-child(n+7) { transition-delay: 0.28s; }
 
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 
+  .reveal,
+  .reveal-from-bottom,
+  .reveal-from-left,
+  .reveal-from-right,
+  .reveal-fade,
+  .reveal-zoom,
+  .reveal-blur,
+  .reveal-flip-up,
+  .reveal-flip-left,
+  .reveal-flip-right,
+  .reveal-spin,
+  .reveal-clip {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-html {
-  scroll-behavior: smooth;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }

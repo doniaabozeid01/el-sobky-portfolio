@@ -1,43 +1,25 @@
-<!-- <section class="services-section"> -->
-<section id="services" class="services-section">
-
-  <div class="services-header">
-    <div class="services-title">
-      <span class="section-eyebrow">— Services</span>
-      <h2>
-        <span class="highlight">Services</span>
-        <span> I Provide</span>
-      </h2>
-    </div>
-
-    <!-- <button class="btn-services-cta">
-      <span class="btn-services-text">View All Services</span>
-      <span class="btn-services-icon">
-        <span class="btn-services-icon-inner">➜</span>
-      </span>
-    </button> -->
-  </div>
-
-  <div class="services-grid">
-    <article
-      class="service-card"
-      *ngFor="let service of services"
-      appScrollReveal="from-bottom"
-    >
-      <div class="service-icon">
-        <span>{{ service.icon }}</span>
+<section id="skills" class="skills">
+  <div class="skills-services">
+    <div class="container">
+      <p class="section-label" appScrollReveal="from-bottom">04 — What I Build</p>
+      <div class="services-grid">
+        <article class="service" *ngFor="let s of services; let i = index" appScrollReveal="flip-up" [revealDelay]="i * 45">
+          <div class="icon">
+            <i [class]="s.icon"></i>
+          </div>
+          <h3>{{ s.label }}</h3>
+          <p>{{ s.sub }}</p>
+        </article>
       </div>
-
-      <h3 class="service-title">{{ service.title }}</h3>
-
-      <p class="service-desc">
-        {{ service.description }}
-      </p>
-
-      <!-- <button class="service-more">
-        Learn more <span>➜</span>
-      </button> -->
-    </article>
+    </div>
   </div>
 
+  <div class="skills-tools">
+    <div class="container">
+      <p class="tools-label">Tools &amp; Technologies</p>
+      <div class="tools-wrap">
+        <span *ngFor="let t of tools; let i = index" appScrollReveal="spin" [revealDelay]="i * 40">{{ t }}</span>
+      </div>
+    </div>
+  </div>
 </section>

@@ -1,60 +1,29 @@
-<!-- <section class="journey-section"> -->
+<section id="journey" class="path">
+  <div class="container">
+    <p class="section-label" appScrollReveal="from-bottom">05 — My Path</p>
 
-    <section id="journey" class="journey-section">
+    <div class="timeline">
+      <div class="line" aria-hidden="true"></div>
 
-
-  <div class="journey-inner">
-    <!-- Section Header -->
-    <div class="journey-header" appScrollReveal="from-bottom">
-      <span class="section-eyebrow">— Education & Work</span>
-
-      <h2 class="journey-title">
-        <span class="highlight">My Academic and</span><br />
-        Professional Journey
-      </h2>
-    </div>
-
-    <!-- Two Columns -->
-    <div class="journey-columns">
-      <!-- Education -->
-      <div class="journey-card" appScrollReveal="from-left">
-        <div class="journey-card-header">
-          <div class="icon-circle">
-            <i class="fa-solid fa-graduation-cap"></i>
+      <article
+        class="item"
+        *ngFor="let item of timeline; let i = index"
+        appScrollReveal="from-left"
+        [revealDelay]="i * 45"
+      >
+        <div class="year">{{ item.year }}</div>
+        <div class="dot" [class.edu]="item.type === 'edu'"></div>
+        <div class="content">
+          <div>
+            <h3>{{ item.title }}</h3>
+            <p class="place">{{ item.place }}</p>
           </div>
-          <h3>Education</h3>
+          <p class="note">{{ item.note }}</p>
         </div>
-
-        <div class="journey-items">
-          <div class="journey-item" *ngFor="let edu of education">
-            <div class="years">{{ edu.years }}</div>
-            <div class="info">
-              <h4>{{ edu.title }}</h4>
-              <p>{{ edu.subtitle }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Experience -->
-      <div class="journey-card" appScrollReveal="from-right">
-        <div class="journey-card-header">
-          <div class="icon-circle">
-            <i class="fa-solid fa-briefcase"></i>
-          </div>
-          <h3>Work Experience</h3>
-        </div>
-
-        <div class="journey-items">
-          <div class="journey-item" *ngFor="let exp of experience">
-            <div class="years">{{ exp.years }}</div>
-            <div class="info">
-              <h4>{{ exp.title }}</h4>
-              <p>{{ exp.subtitle }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
+        <span class="badge" [class.edu]="item.type === 'edu'">
+          {{ item.type === 'edu' ? 'Edu' : 'Work' }}
+        </span>
+      </article>
     </div>
   </div>
 </section>

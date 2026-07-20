@@ -1,54 +1,11 @@
-<footer class="main-footer">
-  <div class="footer-inner">
-
-    <!-- Brand -->
-    <div class="footer-col brand">
-      <div class="brand-row">
-        <div class="brand-circle">M</div>
-        <h3 class="brand-name">Mahmoud Ahmed<span>.</span></h3>
-      </div>
-
-      <p class="brand-desc">
-        I’m Mahmoud Ahmed, a Flutter Developer passionate about building smooth, scalable, and user-focused mobile
-        applications.
-        Always learning, always creating — let’s build something great together.
-      </p>
-
-      <div class="footer-socials ">
-        <a class="d-flex justify-content-center align-items-center" *ngFor="let social of socialLinks"
-          [href]="social.url">
-          <i [class]="social.icon"></i>
-        </a>
-      </div>
+<footer class="footer">
+  <div class="container footer-row">
+    <span class="logo">M<span>.</span>A</span>
+    <p>© 2026 Mahmoud Ahmed — Built with passion &amp; Flutter</p>
+    <div class="socials">
+      <a *ngFor="let social of socialLinks" [href]="social.url" target="_blank" rel="noopener noreferrer">
+        <i [class]="social.icon"></i>
+      </a>
     </div>
-
-    <!-- Navigation -->
-    <div class="footer-col">
-      <h4>Navigation</h4>
-      <a href="#" (click)="scrollTo('hero')">Home</a>
-      <a href="#" (click)="scrollTo('services')">Services</a>
-      <a href="#" (click)="scrollTo('about')">About</a>
-      <a href="#" (click)="scrollTo('projects')">Projects</a>
-      <a href="#" (click)="scrollTo('journey')">Professional Journey</a>
-    </div>
-
-    <!-- Contact -->
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <p>( +02 ) 01026545330 </p>
-      <p>sobakimahmoud@gmail.com </p>
-      <p>Maadi ,Cairo, Egypt </p>
-    </div>
-
-  </div>
-
-  <!-- Bottom Bar -->
-  <div class="footer-bottom justify-content-center">
-    <p >Copyright © 2025 Mahmoud Ahmed. All Rights Reserved.</p>
-    <!-- <div class="footer-links">
-      <a href="#">User Terms & Conditions</a>
-      <span>|</span>
-      <a href="#">Privacy Policy</a>
-    </div> -->
   </div>
 </footer>

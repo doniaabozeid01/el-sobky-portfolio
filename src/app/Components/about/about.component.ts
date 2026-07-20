@@ -1,9 +1,5 @@
-import { Component } from '@angular/core';
-
-interface StatItem {
-  value: string;
-  label: string;
-}
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-about',
@@ -11,19 +7,15 @@ interface StatItem {
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent {
-stats: StatItem[] = [
-    { value: '13+', label: 'Project Completed' },
-    // { value: '50+', label: 'Industry Covered' },
-    { value: '2+', label: 'Years of Experience' }
+  platforms = [
+    { label: 'Mobile', sub: 'iOS · Android', pct: 55 },
+    { label: 'Desktop', sub: 'Win · Mac · Linux', pct: 25 },
+    { label: 'Web', sub: 'Flutter Web', pct: 20 }
   ];
 
-  tags: string[] = [
-    // 'UX/UI Design',
-    'Mobile App Design',
-    'Website Design',
-    // 'Design System',
-    // 'Prototype',
-    'Dashboard',
-    // 'Wireframe Design'
-  ];
+  constructor(@Inject(DOCUMENT) private document: Document) {}
+
+  scrollToContact() {
+    this.document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  }
 }

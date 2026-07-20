@@ -7,41 +7,14 @@ import { Component, Inject } from '@angular/core';
   styleUrls: ['./hero.component.scss']
 })
 export class HeroComponent {
-  services: string[] = [
-    'App Design',
-    'Website Design',
-    'Dashboard',
-    'Wireframe',
-    'Branding',
-    'Product Design'
+  marquee = [
+    'Flutter', 'Dart', 'Firebase', 'BLoC', 'Clean Architecture',
+    'Riverpod', 'Mobile Apps', 'Desktop Apps', 'Web Apps', 'UI/UX'
   ];
-  constructor(@Inject(DOCUMENT) private document: Document) { }
 
-  scrollToSection(sectionId: string, event?: Event) {
-    if (event) event.preventDefault();
+  constructor(@Inject(DOCUMENT) private document: Document) {}
 
-    const el = this.document.getElementById(sectionId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    // this.activeSection = sectionId;
-    // this.isMenuOpen = false;
+  scrollToSection(sectionId: string) {
+    this.document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   }
-
-
-
-
-  skills: string[] = [
-    'App Design',
-    'Website Design',
-    'Dashboard',
-    'Wireframe',
-    'UI/UX Design',
-    'Mobile Design'
-  ];
-
-
-
-
 }

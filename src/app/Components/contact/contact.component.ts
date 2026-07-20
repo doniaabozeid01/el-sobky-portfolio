@@ -11,6 +11,7 @@ export class ContactComponent implements OnInit {
 
   contactForm: FormGroup;
   isSending = false;
+  formSent = false;
   successMessage = '';
   errorMessage = '';
 
@@ -59,6 +60,7 @@ export class ContactComponent implements OnInit {
     try {
       await emailjs.send(this.serviceId, this.templateId, templateParams);
       this.successMessage = 'your message has been sent successfully!';
+      this.formSent = true;
       this.contactForm.reset();
     } catch (err) {
       console.error(err);
