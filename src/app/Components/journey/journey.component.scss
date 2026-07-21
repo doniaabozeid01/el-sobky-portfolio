@@ -1,170 +1,122 @@
 .path {
   background: var(--bg);
-  padding: 6rem 0;
+  padding: 4.5rem 0;
 }
 
 .path .section-label {
-  margin-bottom: 4rem;
+  margin-bottom: 1.75rem;
 }
 
-.timeline {
-  position: relative;
+.path-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 0.85fr;
+  gap: 1.5rem 2rem;
+  align-items: start;
 }
 
-.line {
-  display: none;
-  position: absolute;
-  left: 5.5rem;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.item {
-  display: flex;
-  gap: 1.5rem;
-  align-items: flex-start;
-  padding: 1.6rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  transition: transform 0.25s var(--ease-out);
-}
-
-.item:hover {
-  transform: translateX(8px);
-}
-
-.year {
-  width: 4rem;
-  flex-shrink: 0;
-  text-align: right;
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.2);
-  transition: color 0.2s ease;
-  padding-top: 0.35rem;
-}
-
-.item:hover .year {
-  color: var(--accent);
-}
-
-.dot {
-  display: none;
-  position: relative;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--accent);
-  margin-top: 0.45rem;
-  flex-shrink: 0;
-  box-shadow: 0 0 0 4px rgba(79, 195, 247, 0.18);
-  transition: transform 0.2s var(--ease-out), box-shadow 0.2s ease;
-}
-
-.item:hover .dot {
-  transform: scale(1.2);
-  box-shadow: 0 0 0 6px rgba(79, 195, 247, 0.28);
-}
-
-.dot.edu {
-  background: rgba(255, 255, 255, 0.35);
-  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.08);
-}
-
-.content {
-  flex: 1;
+.exp-col {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
-  min-width: 0;
+  gap: 0.65rem;
 }
 
-.content h3 {
+.exp-item {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 1rem;
+  padding: 1.1rem 1.2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--line);
+  background: var(--card);
+  transition: border-color 0.25s ease, transform 0.3s var(--ease-out);
+}
+
+.exp-item:hover {
+  border-color: rgba(200, 255, 0, 0.28);
+  transform: translateX(4px);
+}
+
+.exp-year {
   font-family: var(--font-display);
-  font-size: clamp(1.2rem, 2.2vw, 1.65rem);
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-  text-transform: none;
-  color: #fff;
-  transition: color 0.18s ease;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  padding-top: 0.2rem;
+  line-height: 1.35;
 }
 
-.item:hover .content h3 {
-  color: var(--accent);
+.exp-item h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+  color: #fff;
 }
 
 .place {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.38);
-  margin-top: 0.15rem;
-  letter-spacing: 0;
-  text-transform: none;
-  font-family: var(--font-main);
+  margin: 0 0 0.4rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .note {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.22);
-  max-width: 20rem;
-  font-family: var(--font-main);
-  letter-spacing: 0;
-  text-transform: none;
+  margin: 0;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.28);
+  line-height: 1.45;
 }
 
-.badge {
-  flex-shrink: 0;
+.edu-col {
+  position: sticky;
+  top: 5.5rem;
+  padding: 1.35rem;
+  border-radius: 1.1rem;
+  border: 1px solid rgba(200, 255, 0, 0.22);
+  background: linear-gradient(160deg, rgba(200, 255, 0, 0.08), transparent 60%), #111;
+}
+
+.edu-label {
+  margin: 0 0 1rem;
   font-family: var(--font-display);
-  font-size: 10px;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  padding: 0.3rem 0.55rem;
-  border-radius: 4px;
-  background: rgba(79, 195, 247, 0.1);
-  color: var(--accent);
-  margin-top: 0.25rem;
+  color: rgba(255, 255, 255, 0.4);
 }
 
-.badge.edu {
-  background: rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.2);
+.edu-card {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
 }
 
-@media (min-width: 900px) {
-  .line,
-  .dot {
-    display: block;
-  }
-
-  .content {
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-
-  .note {
-    text-align: right;
-  }
+.edu-card:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
-@media (max-width: 700px) {
-  .item {
-    flex-wrap: wrap;
-    gap: 0.65rem 1rem;
+.edu-card h4 {
+  margin: 0 0 0.35rem;
+  font-size: 0.98rem;
+  color: #fff;
+  line-height: 1.25;
+}
+
+.edu-card p {
+  margin: 0;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 900px) {
+  .path-grid {
+    grid-template-columns: 1fr;
   }
 
-  .year {
-    width: auto;
-    text-align: left;
-    padding-top: 0;
+  .edu-col {
+    position: static;
   }
 
-  .dot {
-    display: block;
+  .exp-item {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
   }
 }

@@ -6,48 +6,47 @@ import { Component } from '@angular/core';
   styleUrls: ['./journey.component.scss']
 })
 export class JourneyComponent {
-  timeline = [
+  experience = [
     {
-      year: '2024',
-      type: 'work',
-      title: 'Bubble Hope Suite',
-      place: 'E-commerce Mobile + Desktop',
-      note: 'Full app + dashboard for multi-branch ordering'
+      year: '2025 – Present',
+      title: 'Flutter Developer',
+      place: 'AlHendal · On-site',
+      note: 'Internal business Flutter apps, REST APIs, performance.'
+    },
+    {
+      year: '2025 – 2026',
+      title: 'Flutter Developer',
+      place: 'ZeroTech · Remote',
+      note: 'IoT control, smart home, and CCTV streaming apps.'
     },
     {
       year: '2023',
-      type: 'work',
-      title: 'Bialjumla & Alamana',
-      place: 'Commerce & Admin Systems',
-      note: 'Marketplace app and brand management dashboard'
+      title: 'Flutter Developer',
+      place: 'VARIANCE · Cairo',
+      note: 'Technical development team — Flutter delivery.'
     },
     {
-      year: '2023',
-      type: 'edu',
-      title: 'Frontend Course',
-      place: 'HTML · CSS · JS · Angular',
-      note: 'Expanded into web alongside Flutter'
+      year: '2022 – 2023',
+      title: 'Software Handling',
+      place: 'Lake House · Cairo',
+      note: 'Debugging and supporting management software systems.'
     },
     {
-      year: '2022',
-      type: 'work',
-      title: 'E-Tourism Ecosystem',
-      place: 'Travel Platform',
-      note: 'Ticketing app, company app, and admin panel'
+      year: '2021 – 2022',
+      title: 'Software Technical',
+      place: 'Vodafone · Cairo',
+      note: 'Software technical support and delivery operations.'
+    }
+  ];
+
+  education = [
+    {
+      title: 'M.Sc. Software Engineering',
+      place: 'Cairo University · In Progress'
     },
     {
-      year: '2022',
-      type: 'edu',
-      title: 'Flutter Development Track',
-      place: 'Dart & Flutter',
-      note: 'Mobile app development specialization'
-    },
-    {
-      year: '2019–2023',
-      type: 'edu',
       title: 'B.Sc. Computer Science',
-      place: 'Thebes Academy',
-      note: 'Core CS foundation'
+      place: 'Thebes Academy · RIC · Honored'
     }
   ];
 }

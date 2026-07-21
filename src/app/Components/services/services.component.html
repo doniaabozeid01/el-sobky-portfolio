@@ -1,24 +1,54 @@
 <section id="skills" class="skills">
-  <div class="skills-services">
-    <div class="container">
-      <p class="section-label" appScrollReveal="from-bottom">04 — What I Build</p>
-      <div class="services-grid">
-        <article class="service" *ngFor="let s of services; let i = index" appScrollReveal="flip-up" [revealDelay]="i * 45">
-          <div class="icon">
-            <i [class]="s.icon"></i>
-          </div>
+  <div class="container">
+    <p class="section-label" appScrollReveal="from-bottom">04 — Skills</p>
+
+    <div class="services-grid" appScrollReveal="from-bottom">
+      <article class="service" *ngFor="let s of services">
+        <div class="icon">
+          <i [class]="s.icon"></i>
+        </div>
+        <div>
           <h3>{{ s.label }}</h3>
           <p>{{ s.sub }}</p>
-        </article>
+        </div>
+      </article>
+    </div>
+
+    <div class="stack-block" appScrollReveal="from-bottom">
+      <div class="block-head">
+        <h3>Tech Stack</h3>
+        <p>Grouped by how I use them day to day.</p>
+      </div>
+
+      <div class="stack-grid">
+        <div class="stack-group" *ngFor="let group of stackGroups">
+          <p class="group-title">{{ group.title }}</p>
+          <ul>
+            <li *ngFor="let item of group.items">{{ item }}</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="skills-tools">
-    <div class="container">
-      <p class="tools-label">Tools &amp; Technologies</p>
-      <div class="tools-wrap">
-        <span *ngFor="let t of tools; let i = index" appScrollReveal="spin" [revealDelay]="i * 40">{{ t }}</span>
+    <div class="meta-row" appScrollReveal="from-bottom">
+      <div class="meta-card">
+        <p class="meta-label">Certificates</p>
+        <div class="meta-grid">
+          <div class="meta-item" *ngFor="let c of certificates">
+            <strong>{{ c.title }}</strong>
+            <span>{{ c.org }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="meta-card">
+        <p class="meta-label">Languages</p>
+        <div class="meta-grid langs">
+          <div class="meta-item" *ngFor="let l of languages">
+            <strong>{{ l.name }}</strong>
+            <span>{{ l.level }}</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

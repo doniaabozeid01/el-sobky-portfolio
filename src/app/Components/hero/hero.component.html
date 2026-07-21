@@ -1,96 +1,63 @@
 <section id="hero" class="hero">
-  <div class="hero-glow hero-glow-l" aria-hidden="true"></div>
-  <div class="hero-glow hero-glow-r" aria-hidden="true"></div>
+  <div class="hero-glow hero-glow-main" aria-hidden="true"></div>
+  <div class="hero-glow hero-glow-floor" aria-hidden="true"></div>
 
   <div class="hero-inner">
     <div class="hero-copy">
-      <p class="hero-eyebrow hero-anim" style="--d:0.1s">
-        <span class="live"></span>
-        Flutter Developer · Cairo
-      </p>
+      <div class="hero-badge hero-anim" style="--d:0.05s">
+        <i class="fa-solid fa-bolt"></i>
+        <span>Software Engineer · Flutter Developer</span>
+      </div>
 
-      <h1 class="hero-title">
-        <span class="hero-anim line" style="--d:0.18s">Building apps</span>
-        <span class="hero-anim line" style="--d:0.28s">that feel fast,</span>
-        <span class="hero-anim line accent" style="--d:0.38s">clean &amp; sharp.</span>
+      <h1 class="hero-title hero-anim" style="--d:0.15s">
+        Best <span class="accent">Flutter developer</span> for your next product.
       </h1>
 
-      <p class="hero-sub hero-anim" style="--d:0.5s">
-        I’m <strong>Mahmoud Ahmed</strong> — shipping high-performance mobile,
-        desktop &amp; web products with Flutter.
+      <p class="hero-sub hero-anim" style="--d:0.28s">
+        I’m <strong>Mahmoud Ahmed Mohamed</strong> — 3+ years shipping high-quality mobile,
+        desktop &amp; web products with Flutter, from concept to production.
       </p>
 
-      <div class="hero-actions hero-anim" style="--d:0.62s">
-        <button type="button" class="btn-lime" (click)="scrollToSection('work')">
-          See My Work
+      <div class="hero-actions hero-anim" style="--d:0.4s">
+        <button type="button" class="btn-lime" (click)="scrollToSection('contact')">
+          Get Started
+          <i class="fa-solid fa-arrow-up-right"></i>
         </button>
-        <a class="btn-outline" href="../../../assets/Mahmoud Ahmed Mohamed.pdf" target="_blank" rel="noopener noreferrer">
+        <a class="btn-ghost" href="../../../assets/Mahmoud-Ahmed-Mohamed-CV.pdf" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-file-lines"></i>
           View Resume
         </a>
       </div>
 
-      <div class="hero-meta hero-anim" style="--d:0.75s">
-        <div><strong>2+</strong><span>Years</span></div>
-        <div><strong>13+</strong><span>Projects</span></div>
-        <div class="socials">
-          <a href="https://github.com/MahmoudAhmedElGelany" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <i class="fa-brands fa-github"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/mahmoud-elsobky-757760283" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <i class="fa-brands fa-linkedin-in"></i>
-          </a>
-          <a href="mailto:sobakimahmoud@gmail.com" aria-label="Email">
-            <i class="fa-solid fa-envelope"></i>
-          </a>
-        </div>
-      </div>
+      <ul class="hero-feats hero-anim" style="--d:0.52s">
+        <li>
+          <span class="feat-icon"><i class="fa-solid fa-briefcase"></i></span>
+          <span>14+ Projects Shipped</span>
+        </li>
+        <li>
+          <span class="feat-icon"><i class="fa-solid fa-shield-halved"></i></span>
+          <span>3+ Years Experience</span>
+        </li>
+        <li>
+          <span class="feat-icon"><i class="fa-solid fa-bolt"></i></span>
+          <span>End-to-End Delivery</span>
+        </li>
+      </ul>
     </div>
 
-    <div class="hero-visual hero-anim-right">
-      <!-- Orbital rings -->
-      <div class="orbits" aria-hidden="true">
-        <div class="ring ring-a">
-          <span class="node"></span>
-        </div>
-        <div class="ring ring-b">
-          <span class="node"></span>
-        </div>
-        <div class="ring ring-c">
-          <span class="node"></span>
-          <span class="node node-2"></span>
-        </div>
-      </div>
-
-      <!-- Phones -->
-      <div class="phones">
-        <div class="phone phone-back">
-          <div class="phone-chrome">
-            <span class="phone-island"></span>
-            <div class="phone-screen">
-              <img src="../../../assets/projects/mockup mobile app.jpg" alt="Bubble Hope app" />
-            </div>
-          </div>
-        </div>
-        <div class="phone phone-front">
-          <div class="phone-chrome">
-            <span class="phone-island"></span>
-            <div class="phone-screen">
-              <img src="../../../assets/projects/mockup mobile app 2.jpg" alt="Bialjumla app" />
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="hero-visual hero-anim-right" aria-hidden="false">
+      <img
+        class="hero-composition"
+        src="../../../assets/projects/hero-composition.png?v=2"
+        alt="Bubble Hope and Bialjumla app mockups"
+      />
     </div>
   </div>
 
-  <div class="hero-marquee">
-    <div class="hero-marquee-track">
-      <span *ngFor="let repeat of [0, 1]">
-        <ng-container *ngFor="let item of marquee">
-          <span class="item">{{ item }}</span>
-          <span class="star">✦</span>
-        </ng-container>
-      </span>
+  <div class="hero-trusted">
+    <p class="trusted-label">Trusted stack &amp; tools</p>
+    <div class="trusted-logos">
+      <span *ngFor="let brand of brands">{{ brand }}</span>
     </div>
   </div>
 </section>

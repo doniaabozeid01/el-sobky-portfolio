@@ -1,29 +1,31 @@
 <section id="journey" class="path">
   <div class="container">
-    <p class="section-label" appScrollReveal="from-bottom">05 — My Path</p>
+    <p class="section-label" appScrollReveal="from-bottom">05 — Experience</p>
 
-    <div class="timeline">
-      <div class="line" aria-hidden="true"></div>
-
-      <article
-        class="item"
-        *ngFor="let item of timeline; let i = index"
-        appScrollReveal="from-left"
-        [revealDelay]="i * 45"
-      >
-        <div class="year">{{ item.year }}</div>
-        <div class="dot" [class.edu]="item.type === 'edu'"></div>
-        <div class="content">
+    <div class="path-grid">
+      <div class="exp-col">
+        <article
+          class="exp-item"
+          *ngFor="let item of experience; let i = index"
+          appScrollReveal="from-bottom"
+          [revealDelay]="i * 40"
+        >
+          <span class="exp-year">{{ item.year }}</span>
           <div>
             <h3>{{ item.title }}</h3>
             <p class="place">{{ item.place }}</p>
+            <p class="note">{{ item.note }}</p>
           </div>
-          <p class="note">{{ item.note }}</p>
+        </article>
+      </div>
+
+      <aside class="edu-col" appScrollReveal="from-right">
+        <p class="edu-label">Education</p>
+        <div class="edu-card" *ngFor="let edu of education">
+          <h4>{{ edu.title }}</h4>
+          <p>{{ edu.place }}</p>
         </div>
-        <span class="badge" [class.edu]="item.type === 'edu'">
-          {{ item.type === 'edu' ? 'Edu' : 'Work' }}
-        </span>
-      </article>
+      </aside>
     </div>
   </div>
 </section>

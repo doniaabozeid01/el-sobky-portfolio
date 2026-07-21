@@ -7,9 +7,14 @@ import { Component, Inject } from '@angular/core';
   styleUrls: ['./hero.component.scss']
 })
 export class HeroComponent {
-  marquee = [
-    'Flutter', 'Dart', 'Firebase', 'BLoC', 'Clean Architecture',
-    'Riverpod', 'Mobile Apps', 'Desktop Apps', 'Web Apps', 'UI/UX'
+  brands = [
+    'Flutter',
+    'Dart',
+    'Firebase',
+    'BLoC',
+    'Cubit',
+    'REST APIs',
+    'MVVM'
   ];
 
   constructor(@Inject(DOCUMENT) private document: Document) {}

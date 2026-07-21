@@ -2,47 +2,44 @@
   <div class="container">
     <div class="work-head" appScrollReveal="from-bottom">
       <p class="section-label">03 — Selected Work</p>
-      <span>{{ projects.length }} projects</span>
+      <span class="work-count">{{ projects.length }} projects</span>
     </div>
 
-    <div class="work-list">
-      <article
-        class="work-row"
-        *ngFor="let project of projects; let i = index"
-        appScrollReveal="flip-up"
-        [revealDelay]="i * 50"
-        (mouseenter)="hovered = i"
-        (mouseleave)="hovered = -1"
-        [class.is-hovered]="hovered === i"
-      >
-        <div class="preview" *ngIf="hovered === i">
-          <img [src]="project.image" [alt]="project.title" />
+    <div class="work-body">
+      <div class="work-stage" appScrollReveal="from-bottom">
+        <div class="stage-copy">
+          <p class="stage-index">{{ pad(active + 1) }}</p>
+          <h3>{{ current.title }}</h3>
+          <p class="stage-meta">{{ current.category }} · {{ current.year }}</p>
+          <p class="stage-desc">{{ current.desc }}</p>
+          <p class="stage-stack">{{ current.stack.join('  ·  ') }}</p>
+          <button type="button" class="stage-cta" (click)="scrollToContact()">
+            Discuss this project
+            <i class="fa-solid fa-arrow-up-right"></i>
+          </button>
         </div>
 
-        <div class="row-main">
-          <span class="num">{{ project.num }}</span>
-          <h3 [style.color]="hovered === i ? project.accent : '#fff'">{{ project.title }}</h3>
-          <div class="meta">
-            <span class="category">{{ project.category }}</span>
-            <div class="tags">
-              <span *ngFor="let tag of project.tags.slice(0, 2)">{{ tag }}</span>
-            </div>
-            <span class="year">{{ project.year }}</span>
-          </div>
-          <div
-            class="arrow"
-            [style.background]="hovered === i ? project.accent : 'transparent'"
-            [style.border-color]="hovered === i ? project.accent : 'rgba(255,255,255,0.1)'"
-          >
-            <i
-              class="fa-solid fa-arrow-up-right-from-square"
-              [style.color]="hovered === i ? '#070c12' : 'rgba(255,255,255,0.3)'"
-            ></i>
-          </div>
+        <div class="stage-visual">
+          <img [src]="current.image" [alt]="current.title" />
         </div>
+      </div>
 
-        <p class="desc" [class.open]="hovered === i">{{ project.desc }}</p>
-      </article>
+      <div class="work-index" appScrollReveal="from-bottom">
+        <button
+          type="button"
+          class="index-row"
+          *ngFor="let project of projects; let i = index"
+          [attr.data-index]="i"
+          #projectRow
+          [class.active]="active === i"
+          (click)="select(i)"
+        >
+          <span class="i-num">{{ pad(i + 1) }}</span>
+          <span class="i-title">{{ project.title }}</span>
+          <span class="i-cat">{{ project.category }}</span>
+          <span class="i-year">{{ project.year }}</span>
+        </button>
+      </div>
     </div>
   </div>
 </section>

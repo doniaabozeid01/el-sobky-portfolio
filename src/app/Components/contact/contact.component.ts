@@ -8,18 +8,16 @@ import emailjs from '@emailjs/browser';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-
   contactForm: FormGroup;
   isSending = false;
   formSent = false;
   successMessage = '';
   errorMessage = '';
 
-  // EmailJS Config
-  // private serviceId = 'service_4bq8p9a';
-  private serviceId = 'service_6tw6kl6';
-  private templateId = 'template_yje69ju';
-  private publicKey = 's96Hns05YE3JbYABT';
+  private readonly toEmail = 'sobakimahmoud@gmail.com';
+  private readonly serviceId = 'service_6tw6kl6';
+  private readonly templateId = 'template_yje69ju';
+  private readonly publicKey = 's96Hns05YE3JbYABT';
 
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
@@ -45,28 +43,67 @@ export class ContactComponent implements OnInit {
     }
 
     this.isSending = true;
-
     const formValue = this.contactForm.value;
 
-    const templateParams = {
-      from_name: formValue.name,
-      from_email: formValue.email,
-      phone: formValue.phone,
-      country: formValue.country,
-      message: formValue.message,
-      subject: 'New contact request from portfolio website'
-    };
-
     try {
-      await emailjs.send(this.serviceId, this.templateId, templateParams);
-      this.successMessage = 'your message has been sent successfully!';
+      await this.sendViaEmailJs(formValue);
+      this.successMessage = 'Your message has been sent successfully!';
       this.formSent = true;
       this.contactForm.reset();
-    } catch (err) {
-      console.error(err);
-      this.errorMessage = 'An error occurred while sending your message. Please try again later.';
+    } catch (emailJsError) {
+      console.warn('EmailJS failed, trying FormSubmit fallback', emailJsError);
+      try {
+        await this.sendViaFormSubmit(formValue);
+        this.successMessage = 'Your message has been sent successfully!';
+        this.formSent = true;
+        this.contactForm.reset();
+      } catch (fallbackError) {
+        console.error(fallbackError);
+        this.errorMessage =
+          'Could not send right now. Email me at sobakimahmoud@gmail.com';
+      }
     } finally {
       this.isSending = false;
     }
+  }
+
+  private sendViaEmailJs(formValue: Record<string, string>) {
+    return emailjs.send(this.serviceId, this.templateId, {
+      to_email: this.toEmail,
+      to_name: 'Mahmoud',
+      from_name: formValue['name'],
+      from_email: formValue['email'],
+      reply_to: formValue['email'],
+      phone: formValue['phone'],
+      country: formValue['country'],
+      message: formValue['message'],
+      subject: `Portfolio contact from ${formValue['name']}`
+    });
+  }
+
+  private async sendViaFormSubmit(formValue: Record<string, string>) {
+    const res = await fetch(`https://formsubmit.co/ajax/${this.toEmail}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        name: formValue['name'],
+        email: formValue['email'],
+        phone: formValue['phone'],
+        country: formValue['country'],
+        message: formValue['message'],
+        _subject: `Portfolio contact from ${formValue['name']}`,
+        _template: 'table',
+        _captcha: 'false'
+      })
+    });
+
+    if (!res.ok) {
+      throw new Error(`FormSubmit failed: ${res.status}`);
+    }
+
+    return res.json();
   }
 }

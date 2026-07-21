@@ -15,6 +15,7 @@ import { JourneyComponent } from './Components/journey/journey.component';
 import { ContactComponent } from './Components/contact/contact.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './Components/footer/footer.component';
+import { CertificatesComponent } from './Components/certificates/certificates.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FooterComponent } from './Components/footer/footer.component';
     ToolsComponent,
     ProjectsComponent,
     JourneyComponent,
+    CertificatesComponent,
     ContactComponent,
     FooterComponent
   ],

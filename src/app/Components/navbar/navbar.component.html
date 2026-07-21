@@ -1,33 +1,58 @@
-<header class="nav" [class.scrolled]="isScrolled">
+<header class="nav" [class.scrolled]="isScrolled" [class.menu-open]="isMenuOpen">
   <div class="nav-inner">
     <button type="button" class="nav-logo" (click)="scrollToSection('hero')">
-      M<span>.</span>A
+      <span class="logo-mark">M</span>
+      <span class="logo-text">Mahmoud Elsobky</span>
     </button>
 
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="Primary">
       <button
         type="button"
         *ngFor="let link of links"
         (click)="scrollToSection(link.id)"
-        [class.active]="activeSection === link.id || (link.id === 'skills' && activeSection === 'journey')"
+        [class.active]="activeSection === link.id"
       >
         {{ link.label }}
       </button>
     </nav>
 
-    <div class="nav-status">
-      <span class="pulse"></span>
-      <span>Available for work</span>
-    </div>
+    <div class="nav-end">
+      <button type="button" class="nav-cta" (click)="scrollToSection('contact')">
+        Let's talk
+        <i class="fa-solid fa-arrow-up-right"></i>
+      </button>
 
-    <button type="button" class="nav-burger" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen" aria-label="Menu">
-      <i [class]="isMenuOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'"></i>
-    </button>
+      <button
+        type="button"
+        class="nav-burger"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="isMenuOpen"
+        aria-label="Menu"
+      >
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </div>
 
-  <div class="nav-mobile" [class.open]="isMenuOpen">
-    <button type="button" *ngFor="let link of links" (click)="scrollToSection(link.id)">
-      {{ link.label }}
-    </button>
+  <div class="nav-drawer" [class.open]="isMenuOpen" [attr.aria-hidden]="!isMenuOpen">
+    <div class="drawer-inner">
+      <button
+        type="button"
+        class="drawer-link"
+        *ngFor="let link of mobileLinks; let i = index"
+        [style.--i]="i"
+        (click)="scrollToSection(link.id)"
+        [class.active]="activeSection === link.id"
+      >
+        <span class="drawer-num">{{ pad(i + 1) }}</span>
+        {{ link.label }}
+      </button>
+
+      <button type="button" class="nav-cta drawer-cta" (click)="scrollToSection('contact')">
+        Let's talk
+        <i class="fa-solid fa-arrow-up-right"></i>
+      </button>
+    </div>
   </div>
 </header>

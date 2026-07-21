@@ -7,25 +7,31 @@
 }
 
 :root {
-  --bg: #070c12;
-  --bg-alt: #0a1018;
-  --card: #0d1620;
-  --text: #e8f0f7;
+  --bg: #050505;
+  --bg-alt: #0a0a0a;
+  --card: #111111;
+  --text: #f2f2f2;
   --muted: rgba(255, 255, 255, 0.3);
   --muted-soft: rgba(255, 255, 255, 0.2);
   --line: rgba(255, 255, 255, 0.08);
-  --accent: #4fc3f7;
-  --accent-ink: #070c12;
+  --accent: #c8ff00;
+  --accent-ink: #050505;
+  --accent-soft: rgba(200, 255, 0, 0.14);
+  --accent-glow: rgba(200, 255, 0, 0.28);
 
   --font-display: "Outfit", sans-serif;
   --font-main: "DM Sans", sans-serif;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-  --max: 1400px;
+  --max: 1180px;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 72px;
+  scroll-padding-top: 80px;
+}
+
+body.nav-locked {
+  overflow: hidden;
 }
 
 html,

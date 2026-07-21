@@ -1,0 +1,32 @@
+<section id="certs" class="certs">
+  <div class="container">
+    <p class="section-label" appScrollReveal="from-bottom">06 — Certificates &amp; Languages</p>
+
+    <div class="certs-grid">
+      <article
+        class="cert-card"
+        *ngFor="let cert of certificates; let i = index"
+        appScrollReveal="flip-up"
+        [revealDelay]="i * 50"
+      >
+        <div class="cert-icon">
+          <i [class]="cert.icon"></i>
+        </div>
+        <div>
+          <h3>{{ cert.title }}</h3>
+          <p>{{ cert.org }}</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="langs" appScrollReveal="from-bottom">
+      <p class="langs-label">Languages</p>
+      <div class="langs-row">
+        <div class="lang" *ngFor="let lang of languages">
+          <strong>{{ lang.name }}</strong>
+          <span>{{ lang.level }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
