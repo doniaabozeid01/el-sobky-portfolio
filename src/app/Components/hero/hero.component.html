@@ -1,30 +1,38 @@
 <section id="hero" class="hero">
-  <div class="hero-left">
-    <div class="hero-top hero-enter" style="--d:0.1s">
-      <span class="hero-index">Portfolio — 2026</span>
-      <div class="hero-available">
-        <span class="dot"></span>
-        Available
-      </div>
-    </div>
+  <div class="hero-glow hero-glow-l" aria-hidden="true"></div>
+  <div class="hero-glow hero-glow-r" aria-hidden="true"></div>
 
-    <div class="hero-mid">
-      <div class="mask" style="--d:0.2s">
-        <p class="hero-role">Flutter Developer · Cairo, Egypt</p>
-      </div>
-      <div class="mask" style="--d:0.28s">
-        <h1 class="hero-name">MAHMOUD</h1>
-      </div>
-      <div class="mask" style="--d:0.38s">
-        <h1 class="hero-name accent">AHMED</h1>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="hero-eyebrow hero-anim" style="--d:0.1s">
+        <span class="live"></span>
+        Flutter Developer · Cairo
+      </p>
+
+      <h1 class="hero-title">
+        <span class="hero-anim line" style="--d:0.18s">Building apps</span>
+        <span class="hero-anim line" style="--d:0.28s">that feel fast,</span>
+        <span class="hero-anim line accent" style="--d:0.38s">clean &amp; sharp.</span>
+      </h1>
+
+      <p class="hero-sub hero-anim" style="--d:0.5s">
+        I’m <strong>Mahmoud Ahmed</strong> — shipping high-performance mobile,
+        desktop &amp; web products with Flutter.
+      </p>
+
+      <div class="hero-actions hero-anim" style="--d:0.62s">
+        <button type="button" class="btn-lime" (click)="scrollToSection('work')">
+          See My Work
+        </button>
+        <a class="btn-outline" href="../../../assets/Mahmoud Ahmed Mohamed.pdf" target="_blank" rel="noopener noreferrer">
+          View Resume
+        </a>
       </div>
 
-      <div class="hero-divider hero-enter" style="--d:0.65s">
-        <p>
-          Crafting mobile, desktop &amp; web experiences with Flutter — clean code,
-          solid architecture, pixel-perfect UI.
-        </p>
-        <div class="hero-socials">
+      <div class="hero-meta hero-anim" style="--d:0.75s">
+        <div><strong>2+</strong><span>Years</span></div>
+        <div><strong>13+</strong><span>Projects</span></div>
+        <div class="socials">
           <a href="https://github.com/MahmoudAhmedElGelany" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <i class="fa-brands fa-github"></i>
           </a>
@@ -38,48 +46,41 @@
       </div>
     </div>
 
-    <div class="hero-bottom hero-enter" style="--d:0.8s">
-      <div class="hero-cta">
-        <button type="button" class="btn-primary" (click)="scrollToSection('work')">
-          See My Work <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </button>
-        <a class="btn-ghost" href="../../../assets/Mahmoud Ahmed Mohamed.pdf" target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-play"></i> Resume
-        </a>
-      </div>
-      <div class="hero-stats">
-        <div>
-          <strong>2+</strong>
-          <span>Years</span>
+    <div class="hero-visual hero-anim-right">
+      <!-- Orbital rings -->
+      <div class="orbits" aria-hidden="true">
+        <div class="ring ring-a">
+          <span class="node"></span>
         </div>
-        <div>
-          <strong>13+</strong>
-          <span>Projects</span>
+        <div class="ring ring-b">
+          <span class="node"></span>
+        </div>
+        <div class="ring ring-c">
+          <span class="node"></span>
+          <span class="node node-2"></span>
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="hero-right hero-enter-right">
-    <div class="hero-glow" aria-hidden="true"></div>
-    <div class="hero-ring ring-a" aria-hidden="true"></div>
-    <div class="hero-ring ring-b" aria-hidden="true"></div>
-    <div class="hero-figure">
-      <img src="../../../assets/22.png" alt="Mahmoud Ahmed" />
+      <!-- Phones -->
+      <div class="phones">
+        <div class="phone phone-back">
+          <div class="phone-chrome">
+            <span class="phone-island"></span>
+            <div class="phone-screen">
+              <img src="../../../assets/projects/mockup mobile app.jpg" alt="Bubble Hope app" />
+            </div>
+          </div>
+        </div>
+        <div class="phone phone-front">
+          <div class="phone-chrome">
+            <span class="phone-island"></span>
+            <div class="phone-screen">
+              <img src="../../../assets/projects/mockup mobile app 2.jpg" alt="Bialjumla app" />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="hero-card float-in" style="--d:1s">
-      <p>Speciality</p>
-      <strong>Flutter <span>Developer</span></strong>
-    </div>
-    <div class="hero-pill float-in bob" style="--d:1.1s">
-      <i class="fa-solid fa-code"></i>
-      Clean Code
-    </div>
-    <div class="hero-strip" aria-hidden="true"></div>
-  </div>
-
-  <div class="hero-mobile-figure hero-enter" style="--d:0.4s">
-    <img src="../../../assets/22.png" alt="Mahmoud Ahmed" />
   </div>
 
   <div class="hero-marquee">
